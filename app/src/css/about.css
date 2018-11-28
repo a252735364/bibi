@@ -1,0 +1,50 @@
+.about .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    font-weight: 700;
+}
+.about .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.about .about-content{
+    margin-top: 50px;
+    overflow: hidden;
+}
+.about .about-content>img{
+    width: 64px;
+    height: auto;
+    display: block;
+    margin: 25px auto 0;
+}
+.about .about-content p{
+    text-align: center;
+}
+.about .about-content li{
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 14px 0 26px;
+    background: #fff;
+}
+.about .about-content li img{
+    float: right;
+    height: 14px;
+    width: 8px;
+    margin-top: 17px;
+}
+.content{
+    margin-top: 50px;
+    padding: 0 13px 10px;
+    background: #fff;
+}

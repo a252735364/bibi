@@ -78,7 +78,8 @@ class PrivateKeyStore extends BaseStore {
     }
 
     hasKey(pubkey) {
-        return this.state.keys.has(pubkey);
+      console.log(this.state.keys);
+      return this.state.keys.has(pubkey);
     }
 
     getPubkeys() {
@@ -105,10 +106,10 @@ class PrivateKeyStore extends BaseStore {
     }
 
     getTcomb_byPubkey(public_key) {
-        if(! public_key) return null;
+      if(! public_key) return null;
         if(public_key.Q)
             public_key = public_key.toPublicKeyString();
-        return this.state.keys.get(public_key);
+      return this.state.keys.get(public_key);
     }
 
     onAddKey({private_key_object, transaction, resolve}) {// resolve is deprecated

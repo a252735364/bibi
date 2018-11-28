@@ -27,39 +27,39 @@ export const widechainAPIs = {
 };
 
 //for testnet
-/*
-export const settingsAPIs = {
-    DEFAULT_WS_NODE: "ws://192.144.171.138:8002",
-    WS_NODE_LIST: [
-        {url: "ws://192.144.171.138:8002", location: {translate: "settings.api_closest"}},
-        {url: "ws://47.101.34.244:8005", location: "cn"}
-    ],
-    DEFAULT_FAUCET: "http://47.101.34.244",  // 2017-12-infrastructure worker proposal
-    TESTNET_FAUCET: "http://47.101.34.244"
-};
-*/
+
+// export const settingsAPIs = {
+//     DEFAULT_WS_NODE: "ws://192.144.171.138:8002",
+//     WS_NODE_LIST: [
+//         {url: "ws://192.144.171.138:8002", location: {translate: "settings.api_closest"}},
+//         {url: "ws://47.101.34.244:8005", location: "cn"}
+//     ],
+//     DEFAULT_FAUCET: "http://47.101.34.244",  // 2017-12-infrastructure worker proposal
+//     TESTNET_FAUCET: "http://47.101.34.244"
+// };
 
 
 export const settingsAPIs = {
-    DEFAULT_WS_NODE: "wss://www.seertalk.org",
-    WS_NODE_LIST: [
-        {url: "wss://www.seertalk.org", location: {translate: "settings.api_closest"}},
-        {url: "wss://www.seerapi.org", location: "China"}
-    ],
-    DEFAULT_FAUCET: "https://www.seerapi.com",
-    TESTNET_FAUCET: "http://106.14.75.91"
+    // DEFAULT_WS_NODE: "wss://www.seertalk.org",
+    DEFAULT_WS_NODE: "ws://39.105.189.224/ws",
+  WS_NODE_LIST: [
+  {url: "ws://api1.seerchain.org/ws", location: {translate: "settings.api_closest"}},
+  {url: "ws://api1.seerchain.org/ws", location: "China"}
+],
+  DEFAULT_FAUCET: "https://www.seerapi.com",
+  TESTNET_FAUCET: "http://106.14.75.91"
 };
 
 export const  gdexAPIs = {
-    BASE: "https://api.gdex.io",
-    ASSET_LIST: "/gateway/asset/assetList",
-    ASSET_DETAIL: "/gateway/asset/assetDetail",
-    GET_DEPOSIT_ADDRESS: "/gateway/address/getAddress",
-    CHECK_WITHDRAY_ADDRESS: "/gateway/address/checkAddress",
-    DEPOSIT_RECORD_LIST: "/gateway/deposit/recordList",
-    DEPOSIT_RECORD_DETAIL: "/gateway/deposit/recordDetail",
-    WITHDRAW_RECORD_LIST: "/gateway/withdraw/recordList",
-    WITHDRAW_RECORD_DETAIL: "/gateway/withdraw/recordDetail",
+  BASE: "https://api.gdex.io",
+  ASSET_LIST: "/gateway/asset/assetList",
+  ASSET_DETAIL: "/gateway/asset/assetDetail",
+  GET_DEPOSIT_ADDRESS: "/gateway/address/getAddress",
+  CHECK_WITHDRAY_ADDRESS: "/gateway/address/checkAddress",
+  DEPOSIT_RECORD_LIST: "/gateway/deposit/recordList",
+  DEPOSIT_RECORD_DETAIL: "/gateway/deposit/recordDetail",
+  WITHDRAW_RECORD_LIST: "/gateway/withdraw/recordList",
+  WITHDRAW_RECORD_DETAIL: "/gateway/withdraw/recordDetail",
     GET_USER_INFO: "/gateway/user/getUserInfo",
     USER_AGREEMENT: "/gateway/user/isAgree",
     WITHDRAW_RULE: "/gateway/withdraw/rule"

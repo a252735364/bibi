@@ -1,0 +1,157 @@
+.verification{
+    margin-top: 50px;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    padding: 0 27px;
+}
+.verification>p{
+    text-align: center;
+    font-weight: 700;
+    margin-top: 33px;
+}
+.verification>p:nth-child(2){
+    font-size: 10px;
+    margin: 0;
+    line-height: 20px;
+    font-weight: 400;
+}
+.verification>div:nth-child(3){
+    height: 230px;
+    width: 100%;
+    background: #fff;
+    border-radius: 7px;
+    margin-top: 20px;
+    padding: 24px 19px;
+    overflow: hidden;
+}
+.verification>div:nth-child(3)>span{
+    float: left;
+    width: 22.5%;
+    height: 30px;
+    border: 1px solid #2D86E3;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #2C86E3;
+    text-align: center;
+    line-height: 30px;
+    background: #eaf3fc;
+    margin-right: 3.33%;
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+.verification>div:nth-child(3)>span:nth-child(4),
+.verification>div:nth-child(3)>span:nth-child(8),
+.verification>div:nth-child(3)>span:nth-child(12),
+.verification>div:nth-child(3)>span:nth-child(16){
+    margin-right: 0;
+}
+.verification>div:nth-child(4){
+    height: 140px;
+    width: 100%;
+    padding-top: 10px;
+}
+.verification>div:nth-child(4)>span{
+    font-size: 12px;
+    float: left;
+    text-align: center;
+    width: 25%;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.verification>div.onSubmit{
+    width: calc( 100% + 28px );
+    height: 44px;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    border-radius: 22px;
+    margin-left: -14px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 44px;
+    text-align: center;
+}
+.success1,
+.error1{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.2);
+}
+.success1>div,
+.error1>div{
+    height: 213px;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+}
+.success1>div>p:first-child,
+.error1>div>p:first-child{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #ebebeb;
+    font-weight: 700;
+}
+.error1>div>p:first-child{
+    color: #F13535;
+}
+.success1>div>p:nth-child(2),
+.error1>div>p:nth-child(2){
+    padding: 0 13px;
+}
+.success1>div>p:nth-child(2)>span,
+.error1>div>p:nth-child(2)>span{
+    display: block;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 12px;
+}
+.success1>div>p:nth-child(2)>div,
+.error1>div>p:nth-child(2)>div{
+    height: 44px;
+    width: 100%;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    border-radius: 22px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+}
+.c-loading{
+    height: calc(100% + 40px);
+    width: 100%;
+    position: fixed;
+    background: rgba(0,0,0,0.2);
+    z-index: 99999;
+    top: -40px;
+    left: 0;
+}
+.c-loading>div{
+    height: 140px;
+    width: 140px;
+    background: #fff;
+    margin: 260px auto 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.c-loading>div>img{
+    height: 40px;
+    width: 40px;
+    display: block;
+    margin: 33px auto 24px;
+}
+.c-loading>div>p{
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #333;
+}
+

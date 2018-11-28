@@ -36,7 +36,7 @@ class WalletDb extends BaseStore {
 
     constructor() {
         super()
-        this.state = { wallet: null, saving_keys: false }
+        this.state = { wallet: {chain_id:'cea4fdf4f5c2278f139b22e782b308928f04008b0fc2c79970a58974a2a28f91'}, saving_keys: false }
         // Confirm only works when there is a UI (this is for mocha unit tests)
         this.confirm_transactions = true
         ChainStore.subscribe(this.checkNextGeneratedKey.bind(this))
@@ -94,81 +94,106 @@ class WalletDb extends BaseStore {
         if (_passwordKey) return _passwordKey[public_key];
         if(! public_key) return null
         if(public_key.Q) public_key = public_key.toPublicKeyString()
-        let private_key_tcomb = PrivateKeyStore.getTcomb_byPubkey(public_key)
-        if(! private_key_tcomb) return null
+      let private_key_tcomb = PrivateKeyStore.getTcomb_byPubkey(public_key)
+      if(! private_key_tcomb) return null
         return this.decryptTcomb_PrivateKey(private_key_tcomb)
     }
-
-    process_transaction(tr, signer_pubkeys, broadcast, extra_keys = []) {
-        const passwordLogin = SettingsStore.getState().settings.get("passwordLogin");
-
-        if(!passwordLogin && Apis.instance().chain_id !== this.state.wallet.chain_id)
-            return Promise.reject("Mismatched chain_id; expecting " +
-                this.state.wallet.chain_id + ", but got " +
-                Apis.instance().chain_id)
-
-        return WalletUnlockActions.unlock().then( () => {
-            AccountActions.tryToSetCurrentAccount();
-            return Promise.all([
-                tr.set_required_fees(),
-                tr.update_head_block()
-            ]).then(()=> {
-                let signer_pubkeys_added = {}
-                if(signer_pubkeys) {
-                    // Balance claims are by address, only the private
-                    // key holder can know about these additional
-                    // potential keys.
-                    let pubkeys = PrivateKeyStore.getPubkeys_having_PrivateKey(signer_pubkeys)
-                    if( ! pubkeys.length)
-                        throw new Error("Missing signing key")
-
-                    for(let pubkey_string of pubkeys) {
-                        let private_key = this.getPrivateKey(pubkey_string)
-                        tr.add_signer(private_key, pubkey_string)
-                        signer_pubkeys_added[pubkey_string] = true
-                    }
-                }
-
-                return tr.get_potential_signatures().then( ({pubkeys, addys})=> {
-                    let my_pubkeys = PrivateKeyStore.getPubkeys_having_PrivateKey(pubkeys.concat(extra_keys), addys);
-
-                    //{//Testing only, don't send All public keys!
-                    //    let pubkeys_all = PrivateKeyStore.getPubkeys() // All public keys
-                    //    tr.get_required_signatures(pubkeys_all).then( required_pubkey_strings =>
-                    //        console.log('get_required_signatures all\t',required_pubkey_strings.sort(), pubkeys_all))
-                    //    tr.get_required_signatures(my_pubkeys).then( required_pubkey_strings =>
-                    //        console.log('get_required_signatures normal\t',required_pubkey_strings.sort(), pubkeys))
-                    //}
-                    return tr.get_required_signatures(my_pubkeys).then( required_pubkeys => {
-                        for(let pubkey_string of required_pubkeys) {
-                            if(signer_pubkeys_added[pubkey_string]) continue
-                            let private_key = this.getPrivateKey(pubkey_string)
-                            if( ! private_key)
-                                // This should not happen, get_required_signatures will only
-                                // returned keys from my_pubkeys
-                                throw new Error("Missing signing key for " + pubkey_string)
-                            tr.add_signer(private_key, pubkey_string)
-                        }
-                    })
-                }).then(()=> {
-                    if(broadcast) {
-                        if(this.confirm_transactions) {
-                            let p = new Promise((resolve, reject) => {
-                                TransactionConfirmActions.confirm(tr, resolve, reject)
-                            })
-                            return p;
-                        }
-                        else
-                            return tr.broadcast()
-
-                    } else
-                        return tr.serialize()
-                })
-            })
-        })
+    getCookie(cookieName) {
+      var strCookie = document.cookie;
+      var arrCookie = strCookie.split("; ");
+      for(var i = 0; i < arrCookie.length; i++){
+        var arr = arrCookie[i].split("=");
+        if(cookieName == arr[0]){
+          return arr[1];
+        }
+      }
+      return "";
     }
+   // yin
+    getCookie(cookieName) {
+      let strCookie = document.cookie;
+      let arrCookie = strCookie.split("; ");
+      for(let i = 0; i < arrCookie.length; i++){
+        let arr = arrCookie[i].split("=");
+        if(cookieName == arr[0]){
+          return arr[1];
+        }
+      }
+      return "";
+    }
+    process_transaction(tr, signer_pubkeys, broadcast, extra_keys = []) {
+    const passwordLogin = SettingsStore.getState().settings.get("passwordLogin");
 
-    transaction_update() {
+    if(!passwordLogin && Apis.instance().chain_id !== this.state.wallet.chain_id)
+      return Promise.reject("Mismatched chain_id; expecting " +
+        this.state.wallet.chain_id + ", but got " +
+        Apis.instance().chain_id);
+    // return WalletUnlockActions.unlock().then( () => {
+      AccountActions.tryToSetCurrentAccount();
+
+    return Promise.all([
+        tr.set_required_fees(),
+        tr.update_head_block()
+      ]).then(()=> {
+        let signer_pubkeys_added = {}
+        if(signer_pubkeys) {
+          // Balance claims are by address, only the private
+          // key holder can know about these additional
+          // potential keys.
+          let pubkeys = PrivateKeyStore.getPubkeys_having_PrivateKey(signer_pubkeys)
+          if( ! pubkeys.length)
+            throw new Error("Missing signing key")
+
+          for(let pubkey_string of pubkeys) {
+            // let private_key = this.getPrivateKey(pubkey_string)
+            let private_key = PrivateKey.fromSeed(key.normalize_brainKey(this.getCookie('brainkey')))
+            tr.add_signer(private_key, pubkey_string);
+            signer_pubkeys_added[pubkey_string] = true
+          }
+        }
+        return tr.get_potential_signatures().then( ({pubkeys, addys})=> {
+          // let my_pubkeys = PrivateKeyStore.getPubkeys_having_PrivateKey(pubkeys.concat(extra_keys), addys);
+
+          //{//Testing only, don't send All public keys!
+          //    let pubkeys_all = PrivateKeyStore.getPubkeys() // All public keys
+          //    tr.get_required_signatures(pubkeys_all).then( required_pubkey_strings =>
+          //        console.log('get_required_signatures all\t',required_pubkey_strings.sort(), pubkeys_all))
+          //    tr.get_required_signatures(my_pubkeys).then( required_pubkey_strings =>
+          //        console.log('get_required_signatures normal\t',required_pubkey_strings.sort(), pubkeys))
+          //}
+          return tr.get_required_signatures([pubkeys[0]]).then( required_pubkeys => {
+            for(let pubkey_string of required_pubkeys) {
+              if(signer_pubkeys_added[pubkey_string]) continue;
+              // let private_key = this.getPrivateKey(pubkey_string);
+              let private_key = key.get_brainPrivateKey( this.getCookie('zjc').replace(/%20/g, " "),0 );
+              let pubkey_string2 = private_key.toPublicKey().toPublicKeyString();
+              if( ! private_key)
+              // This should not happen, get_required_signatures will only
+              // returned keys from my_pubkeys
+                throw new Error("Missing signing key for " + pubkey_string);
+              tr.add_signer(private_key, pubkey_string2)
+            }
+          })
+        }).then(()=> {
+        if(broadcast) {
+            if(false) {
+              let p = new Promise((resolve, reject) => {
+                TransactionConfirmActions.confirm(tr, resolve, reject)
+              })
+              return p;
+            }
+            else
+              return tr.broadcast()
+
+          } else
+            return tr.serialize()
+        })
+      })
+    // })
+  }
+
+
+  transaction_update() {
         let transaction = iDB.instance().db().transaction(
             ["wallet"], "readwrite"
         )
@@ -186,7 +211,9 @@ class WalletDb extends BaseStore {
         let wallet = this.state.wallet
         if ( ! wallet.encrypted_brainkey) throw new Error("missing brainkey")
         if ( ! aes_private) throw new Error("wallet locked")
+        console.info("wallet.encrypted_brainkey = " + wallet.encrypted_brainkey)
         let brainkey_plaintext = aes_private.decryptHexToText( wallet.encrypted_brainkey )
+        console.info("brainkey_plaintext=" + brainkey_plaintext)
         return brainkey_plaintext
     }
 
@@ -230,12 +257,16 @@ class WalletDb extends BaseStore {
                 let local_aes_private = Aes.fromSeed( encryption_buffer )
 
                 if( ! brainkey_plaintext)
-                    brainkey_plaintext = key.suggest_brain_key(dictionary.en)
+                    brainkey_plaintext = key.suggest_brain_key(dictionary.en);
                 else
                     brainkey_plaintext = key.normalize_brainKey(brainkey_plaintext)
+
+                console.info(brainkey_plaintext);
                 let brainkey_private = this.getBrainKeyPrivate( brainkey_plaintext )
                 let brainkey_pubkey = brainkey_private.toPublicKey().toPublicKeyString()
+
                 let encrypted_brainkey = local_aes_private.encryptToHex( brainkey_plaintext )
+
 
                 let password_private = PrivateKey.fromSeed( password_plaintext )
                 let password_pubkey = password_private.toPublicKey().toPublicKeyString()
@@ -445,7 +476,7 @@ class WalletDb extends BaseStore {
         this.brainkey_look_ahead = Math.min(10, (this.brainkey_look_ahead || 0) + 1)
         /* If sequence is 0 this is the first lookup, so check at least the first 10 positions */
         const loopMax = !sequence ? Math.max(sequence + this.brainkey_look_ahead, 10) : sequence + this.brainkey_look_ahead;
-        // console.log("generateNextKey, save:", save, "sequence:", sequence, "loopMax", loopMax, "brainkey_look_ahead:", this.brainkey_look_ahead);
+        console.log("generateNextKey, save:", save, "sequence:", sequence, "loopMax", loopMax, "brainkey_look_ahead:", this.brainkey_look_ahead);
 
         for (let i = sequence; i < loopMax; i++) {
             let private_key = key.get_brainPrivateKey( brainkey, i )
@@ -456,7 +487,11 @@ class WalletDb extends BaseStore {
                 private_key.toPublicKey().toPublicKeyString()
 
             let next_key = ChainStore.getAccountRefsOfKey( pubkey );
-            // TODO if ( next_key === undefined ) return undefined
+            // TODO
+            // console.info(pubkey);
+            // console.info(next_key);
+            // if ( next_key === undefined )
+            //     throw new Error("brainkey is not correct");
 
             /* If next_key exists, it means the generated private key controls an account, so we need to save it */
             if(next_key && next_key.size) {
@@ -475,12 +510,15 @@ class WalletDb extends BaseStore {
         let private_key = key.get_brainPrivateKey( brainkey, sequence )
         if( save && private_key ) {
             // save deterministic private keys ( the user can delete the brainkey )
-            // console.log("** saving a key and incrementing brainkey sequence **")
+            console.log("** saving a key and incrementing brainkey sequence **")
             this.saveKey( private_key, sequence )
             //TODO  .error( error => ErrorStore.onAdd( "wallet", "saveKey", error ))
             this.incrementBrainKeySequence()
         }
         this.generatingKey = false;
+        console.info(key.get_brainPrivateKey(brainkey).toPublicKey().toPublicKeyString())
+        console.info(key.get_brainPrivateKey(brainkey).toWif())
+        console.info(ChainStore.getAccountRefsOfKey( key.get_brainPrivateKey(brainkey).toPublicKey().toPublicKeyString() ));
         return { private_key, sequence }
     }
 
@@ -602,7 +640,7 @@ class WalletDb extends BaseStore {
         let wallet = this.state.wallet
         if( ! public_key_string) {
             //S L O W
-            // console.log('WARN: public key was not provided, this may incur slow performance')
+            console.log('WARN: public key was not provided, this may incur slow performance')
             let public_key = private_key.toPublicKey()
             public_key_string = public_key.toPublicKeyString()
         } else
@@ -618,7 +656,7 @@ class WalletDb extends BaseStore {
         let p1 = PrivateKeyActions.addKey(
             private_key_object, transaction
         ).then((ret)=> {
-            if(TRACE) console.log('... WalletDb.saveKey result',ret.result)
+            console.log('... WalletDb.saveKey result',ret.result)
             return ret
         })
         return p1

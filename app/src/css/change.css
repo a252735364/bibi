@@ -1,0 +1,98 @@
+
+.change .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+.change .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.change .change-content{
+    padding: 90px 13px 0;
+    margin-top: 50px;
+}
+.change .change-content>form{
+    border-radius: 7px;
+}
+.change .change-content>div{
+    height: 58px;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+    background: #fff;
+}
+.change .change-content>div:first-child{
+    border-radius: 7px 7px 0 0;
+}
+.change .change-content>div:nth-child(3){
+    border-bottom:none;
+    border-radius: 0 0 7px 7px;
+}
+.change .change-content>div>span{
+    height: 58px;
+    line-height: 58px;
+    width: 70px;
+    float: left;
+    font-size: 12px ;
+    padding-left: 13px;
+}
+.change .change-content>div>input{
+    outline: none;
+    border: none;
+    color: #999;
+    font-size: 12px ;
+    height: 20px;
+    width: calc( 100% - 90px);
+    margin-top: 19px;
+    padding-left: 10px;
+}
+.change .change-content>p{
+    height: 80px;
+    width: 100%;
+    line-height: 50px;
+    font-size: 10px;
+    text-align: right;
+    padding-right: 13px;
+}
+.change .change-content>p>p{
+    line-height: 14px;
+    height: 14px;
+    text-align: left;
+    padding-left: 13px;
+    color: #F13535;
+}
+.change .change-content a{
+    color: #2C86E3;
+}
+.change .change-content .submit{
+    height: 44px;
+    width: 100%;
+    background: linear-gradient( to right,#2A7DDF,#38AFF4);
+    border-radius: 22px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+}
+.change .success img{
+    display: block;
+    margin: 165px auto 0;
+    height: 100px;
+    width: 100px;
+}
+.change .success p{
+    text-align: center;
+    font-size: 18px;
+    line-height: 70px;
+}

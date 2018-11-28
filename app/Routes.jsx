@@ -3,292 +3,79 @@ import React from "react";
 import { Route, IndexRoute, Redirect } from "react-router/es";
 import willTransitionTo from "./routerTransition";
 import App from "./App";
+import HomePage from "./src/js/homePage/homePage";
+import Guess from "./src/js/homePage/guess";
+import Hot from "./src/js/homePage/hot";
+import Other from "./src/js/homePage/other";
+import Special from "./src/js/homePage/special";
+import Result from "./src/js/homePage/result";
+import Latest from "./src/js/homePage/latest";
+import UserPage from "./src/js/userPage/userPage";
+import Account from "./src/js/userPage/account";
+import Create from "./src/js/userPage/create";
+import Backups from "./src/js/userPage/backups";
+import Import from "./src/js/userPage/import";
+import Setting from "./src/js/userPage/setting";
+import Lan from "./src/js/userPage/languege";
+import About from "./src/js/userPage/about";
+import Contact from "./src/js/userPage/contact";
+import Collection from "./src/js/userPage/collection";
+import Admin from "./src/js/userPage/admin";
+import ChangePass from "./src/js/userPage/changePass";
+import OrderPage from "./src/js/orderPage/orderPage";
+import WalletPage from "./src/js/walletPage/walletPage";
+import CurrencyDetail from "./src/js/walletPage/currencyDetail";
+import Transfer1 from "./src/js/walletPage/transfer";
+import AddCurrency from "./src/js/walletPage/addCurrency";
+import Receive from "./src/js/walletPage/receive";
+import AddAddress from "./src/js/walletPage/addAddress";
+import Agreement from "./src/js/userPage/agreement";
+import "./src/index.css";
+import Privacy from "./src/js/userPage/privacy";
+import Recharge from "./src/js/walletPage/recharge";
+import ResultGuess from "./src/js/orderPage/resultGuess";
 
-/*
-* Electron does not support async loading of components via System.import,
-* so we make sure they're bundled already by including them here
-*/
-if (__ELECTRON__ || __HASH_HISTORY__) {
-    require("./electron_imports");
-}
-
-class Auth extends React.Component {
-    render() {return null; }
-}
-
-function loadRoute(cb, moduleName = "default") {
-    return (module) => cb(null, module[moduleName]);
-}
-
-function errorLoading(err) {
-    console.error("Dynamic page loading failed", err);
-}
 
 const routes = (
-    <Route path="/" component={App} onEnter={willTransitionTo}>
-        <IndexRoute getComponent={(location, cb) => {
-            System.import("components/Dashboard/DashboardContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/auth/:data" component={Auth}/>
-        <Route path="/dashboard" getComponent={(location, cb) => {
-            System.import("components/Dashboard/DashboardContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="explorer" getComponent={(location, cb) => {
-            System.import("components/Explorer/Explorer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/explorer/fees" getComponent={(location, cb) => {
-            System.import("components/Explorer/FeesContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/explorer/blocks" getComponent={(location, cb) => {
-            System.import("components/Explorer/BlocksContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/explorer/assets" getComponent={(location, cb) => {
-            System.import("components/Explorer/AssetsContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/explorer/accounts" getComponent={(location, cb) => {
-            System.import("components/Explorer/AccountsContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/explorer/witnesses" getComponent={(location, cb) => {
-            System.import("components/Explorer/Witnesses").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/explorer/committee-members" getComponent={(location, cb) => {
-            System.import("components/Explorer/CommitteeMembers").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
+  <Route path="/" component={App} onEnter={willTransitionTo}>
+    {/*主页*/}
+    <Route path="/home" component={HomePage}/>
+    <Route path="/guess" component={Guess}/>
+    <Route path="/hot" component={Hot}/>
+    <Route path="/other" component={Other}/>
+    <Route path="/special" component={Special}/>
+    <Route path="/result" component={Result}/>
+    <Route path="/latest" component={Latest}/>
 
-        <Route path="/explorer/oracles" getComponent={(location, cb) => {
-            System.import("components/Explorer/Oracles").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/houses" getComponent={(location, cb) => {
-            System.import("components/Explorer/Houses").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/houses/:house_id" getComponent={(location, cb) => {
-            System.import("components/Explorer/HouseDetail").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/explorer/rooms/:room_id" getComponent={(location, cb) => {
-            System.import("components/Account/RoomParticipate").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
+    {/*个人中心*/}
+    <Route path="/user" component={UserPage}/>
+    <Route path="/account" component={Account}/>
+    <Route path="/create" component={Create}/>
+    <Route path="/backups" component={Backups}/>
+    <Route path="/import" component={Import}/>
+    <Route path="/setting" component={Setting}/>
+    <Route path="/languege" component={Lan}/>
+    <Route path="/about" component={About}/>
+    <Route path="/contact" component={Contact}/>
+    <Route path="/collection" component={Collection}/>
+    <Route path="/admin" component={Admin}/>
+    <Route path="/change" component={ChangePass}/>
+    <Route path="/agreement" component={Agreement}/>
+    <Route path="/privacy" component={Privacy}/>
 
-        <Route path="wallet" getComponent={(location, cb) => {
-            System.import("components/Wallet/WalletManager").then(loadRoute(cb, "WalletManager")).catch(errorLoading);
-        }}>
-            {/* wallet management console */}
-            <IndexRoute getComponent={(location, cb) => {
-                System.import("components/Wallet/WalletManager").then(loadRoute(cb, "WalletOptions")).catch(errorLoading);
-            }}/>
-            <Route path="change" getComponent={(location, cb) => {
-                System.import("components/Wallet/WalletManager").then(loadRoute(cb, "ChangeActiveWallet")).catch(errorLoading);
-            }}/>
-            <Route path="change-password" getComponent={(location, cb) => {
-                System.import("components/Wallet/WalletChangePassword").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="import-keys" getComponent={(location, cb) => {
-                System.import("components/Wallet/ImportKeys").then(loadRoute(cb, "ExistingAccountOptions")).catch(errorLoading);
-            }}/>
-            <Route path="brainkey" getComponent={(location, cb) => {
-                System.import("components/Wallet/Brainkey").then(loadRoute(cb, "ExistingAccountOptions")).catch(errorLoading);
-            }}/>
-            <Route path="create" getComponent={(location, cb) => {
-                System.import("components/Wallet/WalletCreate").then(loadRoute(cb, "WalletCreate")).catch(errorLoading);
-            }}/>
-            <Route path="delete" getComponent={(location, cb) => {
-                System.import("components/Wallet/WalletManager").then(loadRoute(cb, "WalletDelete")).catch(errorLoading);
-            }}/>
-            <Route path="backup/restore" getComponent={(location, cb) => {
-                System.import("components/Wallet/Backup").then(loadRoute(cb, "BackupRestore")).catch(errorLoading);
-            }}/>
-            <Route path="backup/create" getComponent={(location, cb) => {
-                System.import("components/Wallet/Backup").then(loadRoute(cb, "BackupCreate")).catch(errorLoading);
-            }}/>
-            <Route path="backup/brainkey" getComponent={(location, cb) => {
-                System.import("components/Wallet/BackupBrainkey").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="balance-claims" getComponent={(location, cb) => {
-                System.import("components/Wallet/BalanceClaimActive").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-        </Route>
+    {/*订单*/}
+    <Route path="/order" component={OrderPage}/>
+    <Route path="/resultGuess" component={ResultGuess}/>
 
-        <Route path="create-wallet" getComponent={(location, cb) => {
-            System.import("components/Wallet/WalletCreate").then(loadRoute(cb, "WalletCreate")).catch(errorLoading);
-        }}/>
-
-        <Route path="create-wallet-brainkey" getComponent={(location, cb) => {
-            System.import("components/Wallet/WalletCreate").then(loadRoute(cb, "CreateWalletFromBrainkey")).catch(errorLoading);
-        }}/>
-
-        <Route path="transfer" getComponent={(location, cb) => {
-            System.import("components/Transfer/Transfer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="erc20-gateway" getComponent={(location, cb) => {
-            System.import("components/Balances/ERC20Gateway").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="invoice/:data" getComponent={(location, cb) => {
-            System.import("components/Transfer/Invoice").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="explorer/markets" getComponent={(location, cb) => {
-            System.import("components/Explorer/MarketsContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="market/:marketID" getComponent={(location, cb) => {
-            System.import("components/Exchange/ExchangeContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="settings" getComponent={(location, cb) => {
-            System.import("components/Settings/SettingsContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="settings/:tab" getComponent={(location, cb) => {
-            System.import("components/Settings/SettingsContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="block/:height" getComponent={(location, cb) => {
-            System.import("components/Blockchain/BlockContainer").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="asset/:symbol" getComponent={(location, cb) => {
-            System.import("components/Blockchain/Asset").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="create-account" getComponent={(location, cb) => {
-            System.import("components/LoginSelector").then(loadRoute(cb)).catch(errorLoading);
-        }}>
-            <Route path="wallet" getComponent={(location, cb) => {
-                System.import("components/Account/CreateAccount").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="password" getComponent={(location, cb) => {
-                System.import("components/Account/CreateAccountPassword").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-        </Route>
-
-        <Route path="accounts" getComponent={(location, cb) => {
-            System.import("components/Dashboard/DashboardAccountsOnly").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-
-        <Route path="existing-account" getComponent={(location, cb) => {
-            System.import("components/Wallet/ExistingAccount").then(loadRoute(cb, "ExistingAccount")).catch(errorLoading);
-        }}>
-            <IndexRoute getComponent={(location, cb) => {
-                System.import("components/Wallet/Backup").then(loadRoute(cb, "BackupRestore")).catch(errorLoading);
-            }}/>
-            <Route path="import-backup" getComponent={(location, cb) => {
-                System.import("components/Wallet/ExistingAccount").then(loadRoute(cb, "ExistingAccountOptions")).catch(errorLoading);
-            }}/>
-            <Route path="import-keys" getComponent={(location, cb) => {
-                System.import("components/Wallet/ImportKeys").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="brainkey" getComponent={(location, cb) => {
-                System.import("components/Wallet/Brainkey").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="balance-claim" getComponent={(location, cb) => {
-                System.import("components/Wallet/BalanceClaimActive").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-        </Route>
-
-        <Route path="/account/:account_name" getComponent={(location, cb) => {
-            System.import("components/Account/AccountPage").then(loadRoute(cb)).catch(errorLoading);
-        }}>
-            <IndexRoute getComponent={(location, cb) => {
-                System.import("components/Account/AccountOverview").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            {/* <Route path="dashboard" getComponent={(location, cb) => {
-                System.import("components/Account/AccountOverview").then(loadRoute(cb)).catch(errorLoading);
-            }}/> */}
-            {/* <Route path="deposit-withdraw" getComponent={(location, cb) => {
-                System.import("components/Account/AccountDepositWithdraw").then(loadRoute(cb)).catch(errorLoading);
-            }}/> */}
-            {/* <Route path="orders" getComponent={(location, cb) => {
-                System.import("components/Account/AccountOrders").then(loadRoute(cb)).catch(errorLoading);
-            }}/> */}
-
-            <Route path="assets" getComponent={(location, cb) => {
-                System.import("components/Account/AccountAssets").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="create-asset" getComponent={(location, cb) => {
-                System.import("components/Account/AccountAssetCreate").then(loadRoute(cb, "AccountAssetCreate")).catch(errorLoading);
-            }}/>
-            <Route path="update-asset/:asset" getComponent={(location, cb) => {
-                System.import("components/Account/AccountAssetUpdate").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="member-stats" getComponent={(location, cb) => {
-                System.import("components/Account/AccountMembership").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="vesting" getComponent={(location, cb) => {
-                System.import("components/Account/AccountVesting").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="permissions" getComponent={(location, cb) => {
-                System.import("components/Account/AccountPermissions").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="voting" getComponent={(location, cb) => {
-                System.import("components/Account/AccountVoting").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="whitelist" getComponent={(location, cb) => {
-                System.import("components/Account/AccountWhitelist").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="signedmessages" getComponent={(location, cb) => {
-                System.import("components/Account/AccountSignedMessages").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-
-            <Route path="create-oracle" getComponent={(location, cb) => {
-                System.import("components/Account/AccountOracleCreate").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="oracle" getComponent={(location, cb) => {
-                System.import("components/Account/AccountOracle").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="create-house" getComponent={(location, cb) => {
-                System.import("components/Account/AccountHouseCreate").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="houses" getComponent={(location, cb) => {
-                System.import("components/Account/AccountHouse").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="create-room/single=:ok" getComponent={(location, cb) => {
-                System.import("components/Account/AccountRoomCreate").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="create-room" getComponent={(location, cb) => {
-                System.import("components/Account/AccountRoomCreate").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="rooms/:room_id" getComponent={(location, cb) => {
-                System.import("components/Account/RoomParticipate").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="rooms/:room_id/input" getComponent={(location, cb) => {
-                System.import("components/Account/RoomInput").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="rooms/:room_id/oracle-input" getComponent={(location, cb) => {
-                System.import("components/Account/OracleInput").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="rooms/:room_id/update" getComponent={(location, cb) => {
-                System.import("components/Account/AccountRoomUpdateWrapper").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="update-house/:house_id" getComponent={(location, cb) => {
-                System.import("components/Account/AccountHouseUpdate").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Route path="update-oracle/:oracle_id" getComponent={(location, cb) => {
-                System.import("components/Account/AccountOracleUpdate").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
-            <Redirect from="overview" to="/account/:account_name" />
-            <Redirect from="dashboard" to="/account/:account_name" />
-            <Redirect from="orders" to="/account/:account_name" />
-        </Route>
-        <Route path="deposit-withdraw" getComponent={(location, cb) => {
-            System.import("components/Account/AccountDepositWithdraw").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="create-worker" getComponent={(location, cb) => {
-            System.import("components/Account/CreateWorker").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/init-error" getComponent={(location, cb) => {
-            System.import("components/InitError").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/news" getComponent={(location, cb) => {
-            System.import("components/News").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
-        <Route path="/help" getComponent={(location, cb) => {
-            System.import("components/Help").then(loadRoute(cb)).catch(errorLoading);
-        }}>
-            <Route path=":path1" getComponent={(location, cb) => {
-                System.import("components/Help").then(loadRoute(cb)).catch(errorLoading);
-            }}>
-                <Route path=":path2" getComponent={(location, cb) => {
-                    System.import("components/Help").then(loadRoute(cb)).catch(errorLoading);
-                }}>
-                    <Route path=":path3" getComponent={(location, cb) => {
-                        System.import("components/Help").then(loadRoute(cb)).catch(errorLoading);
-                    }} />
-                </Route>
-            </Route>
-        </Route>
-    </Route>
+    {/*钱包*/}
+    <Route path="/wallet" component={WalletPage}/>
+    <Route path="/currencyDetail" component={CurrencyDetail}/>
+    <Route path="/transfer" component={Transfer1}/>
+    <Route path="/addCurrency" component={AddCurrency}/>
+    <Route path="/receive" component={Receive}/>
+    <Route path="/address" component={AddAddress}/>
+    <Route path="/recharge" component={Recharge}/>
+  </Route>
 );
 
 export default routes;

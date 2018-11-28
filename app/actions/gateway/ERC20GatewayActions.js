@@ -9,7 +9,6 @@ import SettingsStore from "../../stores/SettingsStore";
 import GlobalParams from "../../utils/GlobalParams";
 
 class ERC20GatewayActions {
-
     getAddrByAccount(js) {
         return (dispatch) => {
             return new Promise((resolve, reject) => {
@@ -19,7 +18,6 @@ class ERC20GatewayActions {
                     resolve(res.data.eth_address)
                 }).catch(err => {
                     dispatch(null);
-
                     console.log(err);
 
                 });
@@ -28,8 +26,8 @@ class ERC20GatewayActions {
     }
 
     bindAccount(js) {
-
-        return (dispatch) => {
+      console.log(js);
+      return (dispatch) => {
             return new Promise((resolve, reject) => {
                 return FetchApi.post('api/v1/seer_eth/bind', js).then(res => {
                         //console.log("ethaddr:",res)
@@ -37,9 +35,7 @@ class ERC20GatewayActions {
                     resolve(res.data.eth_address)
                 }).catch(err => {
                     dispatch(null);
-
                     console.log(err);
-
                 });
 
             });

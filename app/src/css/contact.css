@@ -1,0 +1,59 @@
+.contact .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    font-weight: 700;
+}
+.contact .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.contact-content{
+    margin-top: 50px;
+    padding: 90px 13px 0;
+    height: 500px;
+    width: 100%;
+    background: url("../img/user/banner.png") no-repeat top center;
+    background-size:100% 145px;
+}
+.contact-content>ul{
+    background: #fff;
+    border-radius: 7px;
+    margin-bottom: 28px ;
+}
+.contact-content>ul li{
+    padding:0 13px;
+    height: 58px;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+}
+.contact-content>ul li:last-child{
+    border-bottom: none;
+}
+.contact-content>ul li span{
+    float: left;
+    width: 90px;
+    line-height: 58px;
+    font-size: 12px;
+}
+.contact-content>ul li div{
+    float: right;
+    font-size: 12px;
+    height: 35px;
+    width: 100px;
+    border-radius: 17px;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    margin-top: 11px;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+}

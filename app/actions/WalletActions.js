@@ -153,7 +153,17 @@ class WalletActions {
             if (window && window.location && window.location.protocol === "https:") {
                 faucetAddress = faucetAddress.replace(/http:\/\//, "https://");
             }
-
+            console.info(faucetAddress + "/api/v1/accounts");
+            console.info(JSON.stringify({
+              "account": {
+                "name": account_name,
+                "owner_key": owner_private.private_key.toPublicKey().toPublicKeyString(),
+                "active_key": active_private.private_key.toPublicKey().toPublicKeyString(),
+                "memo_key": active_private.private_key.toPublicKey().toPublicKeyString(),
+                "refcode": refcode,
+                "referrer": referrer
+              }
+            }));
             let create_account_promise = fetch( faucetAddress + "/api/v1/accounts", {
                 method: "post",
                 mode: "cors",

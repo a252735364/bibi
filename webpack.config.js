@@ -189,6 +189,30 @@ module.exports = function(env) {
                         }
                     ]
                 },
+              {
+                test: /\.jpg$/,
+                exclude:[path.resolve(root_dir, "app/assets/asset-symbols"), path.resolve(root_dir, "app/assets/language-dropdown/img")],
+                use: [
+                  {
+                    loader: "url-loader",
+                    options: {
+                      limit: 100000
+                    }
+                  }
+                ]
+              },
+              {
+                test: /\.gif$/,
+                exclude:[path.resolve(root_dir, "app/assets/asset-symbols"), path.resolve(root_dir, "app/assets/language-dropdown/img")],
+                use: [
+                  {
+                    loader: "url-loader",
+                    options: {
+                      limit: 100000
+                    }
+                  }
+                ]
+              },
 
                 {
                     test: /\.woff$/,

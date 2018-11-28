@@ -87,11 +87,13 @@ const ApplicationApi = {
         propose_account = null,
         fee_asset_id = "1.3.0"
     }) {
-        let memo_sender = propose_account || from_account;
+      console.log(from_account);
+      let memo_sender = propose_account || from_account;
 
-        let unlock_promise = WalletUnlockActions.unlock();
+        // let unlock_promise = WalletUnlockActions.unlock();
+        let unlock_promise = null
 
-        return Promise.all([
+      return Promise.all([
             FetchChain("getAccount", from_account),
             FetchChain("getAccount", to_account),
             FetchChain("getAccount", memo_sender),
@@ -100,8 +102,8 @@ const ApplicationApi = {
             FetchChain("getAsset", fee_asset_id),
             unlock_promise
         ]).then((res)=> {
-
-            let [
+          console.log(res);
+          let [
                 chain_from, chain_to, chain_memo_sender, chain_propose_account,
                 chain_asset, chain_fee_asset
             ] = res;
@@ -195,7 +197,7 @@ const ApplicationApi = {
                     broadcast
                 );
             });
-        });
+        })
     },
 
     issue_asset(

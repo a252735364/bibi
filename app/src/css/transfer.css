@@ -1,0 +1,150 @@
+.transfer{
+    height: 100%;
+    width: 100%;
+}
+.transfer .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-weight: 700;
+    background: #fff;
+}
+.transfer .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.transfer-content{
+    padding: 20px 13px ;
+    margin-top: 50px;
+}
+.transfer-content>form>div{
+    height: 57px;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ebebeb;
+    padding-left: 9.1%;
+}
+.transfer-content>form>div:last-child{
+    border-bottom: none;
+}
+.transfer-content>form>div>span{
+    float: left;
+    line-height: 57px;
+    margin-right: 3.5%;
+    font-size: 12px;
+}
+.transfer-content>form>div>input{
+    height: 20px;
+    float: left;
+    margin-top: 18px;
+    border: none;
+    outline: none;
+    color: #999;
+    width: 60%;
+    font-size: 12px;
+}
+.transfer-content>form>div img{
+    height: 20px;
+    width: 20px;
+    float: right;
+    margin-right: 3.5%;
+    margin-top: 18px;
+}
+.transfer-content>form>p{
+    height: 77px;
+    width: 100%;
+    padding: 13px 13px 0;
+    position: relative;
+}
+.transfer-content>form>p>p{
+    height: 14px;
+    line-height: 14px;
+    font-size: 12px;
+    color: #F13535;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    padding-left: 0;
+}
+.transfer-content>form>p>span{
+    font-size: 10px;
+}
+.transfer-content>form>p>span:nth-child(2){
+    color: #F13535;
+}
+.transfer-content>form>p>span:nth-child(3),
+.transfer-content>form>p>span:nth-child(4){
+    float: right;
+}
+.transfer-content>form>p>span:nth-child(3){
+    color: #2C85E2;
+}
+.transfer-content>form>.submit{
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    width: 100%;
+    background:linear-gradient(to right, #2A7DDF , #38AFF4);
+    border: none;
+    outline: none;
+    border-radius: 22px;
+    font-size: 16px;
+    color: #fff;
+    padding-left: 0;
+}
+.loading{
+    height: calc(100% + 40px);
+    width: 100%;
+    position: fixed;
+    background: rgba(0,0,0,0.2);
+    z-index: 99999;
+    top: -40px;
+}
+.loading>div{
+    height: 140px;
+    width: 140px;
+    background: #fff;
+    margin: 260px auto 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.loading>div>img{
+    height: 40px;
+    width: 40px;
+    display: block;
+    margin: 33px auto 24px;
+}
+.loading>div>p{
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #333;
+}
+.zzcg{
+    position: fixed;
+    top: -40px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #f4f6fd;
+}
+.zzcg>img{
+    display: block;
+    margin: 165px auto 0;
+    height: 100px;
+    width: 100px;
+}
+.zzcg>p{
+    text-align: center;
+    font-size: 18px;
+    line-height: 70px;
+
+}

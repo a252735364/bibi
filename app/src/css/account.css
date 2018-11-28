@@ -1,0 +1,54 @@
+.account .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    font-weight: 700;
+}
+.account .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.account .account-content{
+    margin-top: 50px;
+    overflow: hidden;
+}
+.account .account-content img{
+    height: 72px;
+    width: auto;
+    display: block;
+    margin: 80px auto 33px;
+}
+.account .account-content>p{
+    font-size: 10px ;
+    text-align: center;
+}
+.account .account-content div{
+    padding: 0 13px;
+    margin-top: 102px;
+}
+.account .account-content div p{
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    width: 100%;
+    border-radius: 22px;
+    font-size: 18px;
+}
+.account .account-content div a:first-child p{
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    color: #fff;
+    margin-bottom: 20px;
+}
+.account .account-content div a:last-child p{
+    border: 1px solid #2A7DDF;
+    color: #2A7DDF;
+}

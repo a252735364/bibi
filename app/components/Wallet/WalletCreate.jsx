@@ -60,7 +60,6 @@ class CreateNewWallet extends Component {
         if (!valid_password || errors.wallet_public_name || (custom_brainkey && !errors.validBrainkey)) {
             return;
         }
-
         WalletActions.setWallet(wallet_public_name, valid_password, this.state.brnkey);
         SettingsActions.changeSetting({
             setting: "passwordLogin",

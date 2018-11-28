@@ -1,0 +1,64 @@
+.AddCurrency-content{
+    height: 100%;
+    width: 100%;
+    background: #fff;
+}
+.AddCurrency-content .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-weight: 700;
+    background: #fff;
+}
+.AddCurrency-content .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+
+
+.AddCurrency-content ul{
+    margin-top: 50px;
+}
+.AddCurrency-content li{
+    height: 80px;
+    width: 100%;
+    padding: 20px 14px;
+    border-bottom: 1px solid #ebebeb;
+}
+.AddCurrency-content li>p{
+    float: left;
+}
+.AddCurrency-content li>p:first-child{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+}
+.AddCurrency-content li>p:nth-child(2)>span{
+    display: block;
+    font-size: 10px;
+    padding-left: 13px;
+}
+.AddCurrency-content li>p:nth-child(2)>span:first-child{
+    font-size: 14px;
+    font-weight: 700;
+}
+.AddCurrency-content li>p:nth-child(3){
+    width: 30px;
+    height: 30px;
+    float:right;
+    line-height: 40px;
+    color: #2A7DDF;
+}
+.AddCurrency-content li>p:nth-child(3)>img{
+    height: 30px;
+    width: 30px;
+}

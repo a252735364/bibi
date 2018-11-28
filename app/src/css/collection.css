@@ -1,0 +1,113 @@
+.collection .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+.collection .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.collection-content{
+    margin-top: 50px;
+    padding: 90px 13px 0;
+    height: 500px;
+    width: 100%;
+    background: url("../img/user/banner.png") no-repeat top center;
+    background-size:100% 145px;
+}
+.collection-content>ul{
+    background: #fff;
+    border-radius: 7px;
+    margin-bottom: 28px ;
+}
+.collection-content>ul li{
+    padding:0 13px;
+    height: 58px;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+}
+.collection-content>ul li:last-child{
+    border-bottom: none;
+}
+.collection-content>ul li span{
+    float: left;
+    line-height: 58px;
+    font-size: 12px;
+}
+.collection-content>ul li div{
+    float: right;
+    font-size: 12px;
+    height: 35px;
+    width: 100px;
+    border-radius: 17px;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    margin-top: 11px;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+}
+.collection-content>ul li input{
+    height: 57px;
+    width: 130px;
+    float: left;
+    outline: none;
+    border: none;
+    color: #999;
+    font-size: 12px;
+}
+.collection-content>ul li:last-child span:last-child{
+    float: right;
+}
+.collection-content>div>ul{
+    width: 100%;
+    overflow: hidden;
+}
+.collection-content>div>ul:first-child li{
+    height: 25px;
+    float: left;
+    line-height: 22px;
+    width: 60px;
+    text-align: center;
+    position: relative;
+    font-size: 12px;
+}
+.collection-content>div>ul:first-child li.cur:after{
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 27px;
+    background: #2A7DDF;
+    border-radius: 1.5px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -13px;
+}
+.collection-content>div>ul.tab-c{
+    width: calc(100% + 26px);
+    margin-top: 20px;
+    margin-left: -13px;
+}
+.collection-content>div>ul.tab-c li:nth-child(2){
+    width: 100%;
+}
+.collection-content>div>ul.tab-c li:nth-child(2) p{
+    height: 48px;
+    line-height: 48px;
+    font-size: 12px;
+    width: 100%;
+    padding:0 13px;
+    background: #fff;
+    border-bottom: 1px solid #ebebeb;
+}
+.collection-content>div>ul.tab-c li:nth-child(2) p span:last-child{
+    float: right;
+}

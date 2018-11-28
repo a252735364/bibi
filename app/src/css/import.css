@@ -1,0 +1,129 @@
+.import .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    font-weight: 700;
+}
+.import .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.import .import-content{
+    margin-top: 50px;
+    overflow: hidden;
+    padding: 0 13px;
+}
+.import .import-content textarea{
+    width: 100%;
+    height: 172px;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 20px 14px;
+    font-size: 12px;
+    color: #999;
+    border-radius: 7px;
+}
+.import .import-content textarea::placeholder{
+    color: #999;
+}
+.import .import-content>form>div:nth-child(2){
+    height: 118px;
+    width: 100%;
+    background: #fff;
+    margin-top: 20px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+.import .import-content>form>div>p{
+    overflow: hidden;
+}
+.import .import-content>form>div>p>span{
+    float: left;
+    width: 77px;
+    height: 58px;
+    line-height: 58px;
+    font-size: 12px;
+    padding-left: 13px;
+}
+.import .import-content>form>div>p>input{
+    height: 58px;
+    width: calc(100% - 90px);
+    line-height: 58px;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    float: left;
+}
+.import .import-content>form>div>p>input::placeholder{
+    color: #999;
+}
+.import .import-content>form>div:nth-child(2)>p:first-child{
+    border-bottom: 1px solid #ebebeb;
+}
+.import .import-content>form>div:nth-child(3){
+    height: 50px;
+    margin-top: 16px;
+    padding-right:0;
+    margin-bottom: 40px;
+    position: relative;
+}
+.import .import-content>form>div:nth-child(3)>input,
+.import .import-content>form>div:nth-child(3)>p{
+    float: right;
+    font-size: 12px;
+}
+.import .import-content>form>div:nth-child(3)>input{
+    margin-top: 2px;
+}
+.import .import-content>form>div:nth-child(3)>p>a{
+    color: #2C86E3;
+}
+.import .import-content>form .importWallet{
+    height: 44px;
+    width: 100%;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    border-radius: 22px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    margin-top: 20px;
+}
+.tishi{
+    color: #F13535;
+    position: absolute;
+    line-height: 16px;
+    left: 13px;
+    top: 60px;
+    font-size: 10px;
+}
+.check-id{
+    position: relative;
+    float: right;
+    height: 13px;
+    width: 13px;
+    border: 1px solid #2A7DDF;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+.check-id span{
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background:#2A7DDF ;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}

@@ -44,6 +44,7 @@ class SettingsStore {
             locale: "en",
             apiServer: settingsAPIs.DEFAULT_WS_NODE,
             faucet_address: settingsAPIs.DEFAULT_FAUCET,
+            faucet_address2: settingsAPIs.DEFAULT_FAUCET2,
             unit: CORE_ASSET,
             showSettles: false,
             showAssetPercent: false,
@@ -150,6 +151,7 @@ class SettingsStore {
         this.apiLatencies = ss.get("apiLatencies", {});
 
         this.mainnet_faucet = ss.get("mainnet_faucet", settingsAPIs.DEFAULT_FAUCET);
+        this.mainnet_faucet2 = ss.get("mainnet_faucet", settingsAPIs.DEFAULT_FAUCET2);
         this.testnet_faucet = ss.get("testnet_faucet", settingsAPIs.TESTNET_FAUCET);
     }
 

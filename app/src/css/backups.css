@@ -1,0 +1,255 @@
+.backups .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    font-weight: 700;
+}
+.backups .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.backups .backups-content{
+    margin-top: 50px;
+    overflow: hidden;
+    padding: 0 13px;
+}
+.backups .backups-content>div:first-child{
+    padding: 0 26px ;
+    margin-top: 90px;
+}
+.backups .backups-content>div:first-child .title{
+    background: url("../../src/img/user/backups-title.png") no-repeat;
+    background-size: 100% 44px;
+    height: 44px;
+    width: 100%;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    font-size: 18px;
+}
+.backups .backups-content>div:first-child .title img{
+    height: 24px;
+    display: inline-block;
+    margin-bottom: -5px;
+    margin-right: 5px;
+}
+.backups .backups-content>div:first-child>div:nth-child(2){
+    height: 150px;
+    width: 100%;
+    background: #fff;
+    border-radius: 0 0 7px 7px;
+}
+.backups .backups-content>div:first-child>div:nth-child(2) p{
+    padding: 43px 18px 0;
+    font-size: 10px;
+}
+.backups .backups-content>div:last-child{
+    height: 44px;
+    width: 100%;
+    line-height: 44px;
+    text-align: center;
+    margin-top: 62px;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    border-radius: 22px;
+    font-size: 18px;
+    color: #fff;
+}
+.backups>.pop{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.backups>.pop>div{
+    height: 120px;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+}
+.backups>.pop>div>.hd{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    position: relative;
+}
+.backups>.pop>div>.hd>img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.backups>.pop>div>.hd>span{
+    position: absolute;
+    right: 26px;
+    color: #2A7DDF;
+}
+
+.backups>.pop>div>.input{
+    height: 73px;
+    width: 100%;
+    padding: 5px 27px 0;
+}
+.backups>.pop>div>.input input{
+    height: 36px;
+    width: 100%;
+    outline: none;
+    padding-left: 20px;
+    font-size: 10px;
+}
+.backups>.pop>div>.input>p{
+    height: 30px;
+    line-height: 30px;
+    color: #E62E2E;
+    padding-left: 20px;
+    font-size: 10px;
+}
+.backups>.pop>div>.number{
+    width: 100%;
+    height: 224px;
+    background: #D6D7DC;
+    padding:15px;
+}
+.backups>.pop>div>.number>p{
+    height: 33px;
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.backups>.pop>div>.number>p:last-child{
+    margin-bottom:0;
+}
+.backups>.pop>div>.number>p>span{
+    width: 31.25%;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    float: left;
+    margin-left: 3.1%;
+    font-weight: 700;
+    background: #fff;
+    border-radius: 16px;
+}
+.backups>.pop>div>.number>p>span:first-child{
+    margin-left: 0;
+}
+.backups .remember{
+    height: 100%;
+    width: 100%;
+    margin-top: 50px;
+    overflow: hidden;
+    padding: 0 13px;
+}
+.backups .remember>div:first-child{
+    padding: 0 15px;
+}
+.backups .remember>div:first-child>p:first-child{
+    font-size: 14px;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 33px;
+}
+.backups .remember>div:first-child>p:nth-child(2){
+    font-size: 10px;
+    line-height: 23px;
+    margin-top: 5px;
+}
+.backups .remember>div:first-child>div{
+    height: 230px;
+    width: 100%;
+    background: #fff;
+    border-radius: 7px;
+    margin-top: 20px;
+    padding: 24px 19px;
+}
+.backups .remember>div:first-child>div>span{
+    float: left;
+    width: 22.5%;
+    height: 30px;
+    border: 1px solid #2D86E3;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #2C86E3;
+    text-align: center;
+    line-height: 30px;
+    background: #eaf3fc;
+    margin-right: 3.33%;
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+.backups .remember>div:first-child>div>span:nth-child(4),
+.backups .remember>div:first-child>div>span:nth-child(8),
+.backups .remember>div:first-child>div>span:nth-child(12),
+.backups .remember>div:first-child>div>span:nth-child(16){
+    margin-right: 0%;
+}
+.backups .remember>.pass{
+    height: 44px;
+    width: 100%;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+    border-radius: 22px;
+    font-size: 16px;
+    margin-top: 53px;
+}
+.backups .pop1{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: rgba(0,0,0,0.2);
+}
+.backups .pop1>div{
+    height: 213px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: #fff;
+}
+.backups .pop1 .hd{
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    border-bottom: 1px solid #ebebeb;
+}
+.backups .pop1 .pop-info{
+    height: 164px;
+    width: 100%;
+    padding: 0 13px;
+}
+.backups .pop1 .pop-info p{
+    text-align: center;
+    font-size: 10px;
+    line-height: 20px;
+    height: 100px;
+    padding-top: 40px;
+}
+.backups .pop1 .pop-info>div{
+    height: 44px;
+    width: 100%;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    border-radius: 22px;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+}

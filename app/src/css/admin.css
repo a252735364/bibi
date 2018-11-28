@@ -1,0 +1,95 @@
+.admin .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+.admin .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.admin .admin-content{
+    margin-top: 70px;
+
+}
+.admin .admin-content ul li{
+    height: 48px;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+    background: #fff;
+    padding: 0 13px;
+    line-height: 48px;
+}
+.admin .admin-content ul>li{
+    border-bottom: none;
+}
+.admin .admin-content ul li span{
+    float: left;
+}
+.admin .admin-content ul li img{
+    float: right;
+    height: 14px;
+    width: 8px;
+    margin-top: 17px;
+}
+
+.removeWallet{
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+}
+.removeWallet .pop-box{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 213px;
+    width: 100%;
+    background: #fff;
+}
+.removeWallet .pop-box .title{
+    height: 48px;
+    line-height: 48px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ebebeb;
+    font-weight: 700;
+}
+.removeWallet .pop-box>div:nth-child(2){
+    padding: 0 27px;
+    height: 164px;
+    width: 100%;
+}
+.removeWallet .pop-box>div:nth-child(2)>p{
+    margin-top: 36px;
+    font-size: 10px;
+    color: #999;
+}
+.removeWallet .pop-box>div:nth-child(2)>div{
+    height: 44px;
+    line-height: 44px;
+    width: 44%;
+    float: left;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 22px;
+    margin-top: 35px;
+    border: 1px solid #2C86E3;
+    color: #2C86E3;
+}
+.removeWallet .pop-box>div:nth-child(2)>div:last-child{
+    float: right;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    border: none;
+    color: #fff;
+}

@@ -1,0 +1,106 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0;box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body { background:#f4f6fd; color:#555; font-size:14px; font-family:"微软雅黑", Verdana, Arial, Helvetica, sans-serif;position: relative}
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a { color:#555; text-decoration:none; }
+a:hover { text-decoration:underline; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;}
+
+.user-msg{
+    height: 145px;
+    width: 100%;
+    background: #fff;
+    text-align: center;
+}
+.user-msg .head{
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    font-size: 18px;
+}
+.user-msg>div:nth-child(2){
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background: #999;
+    overflow: hidden;
+}
+.user-msg>div:nth-child(2) img{
+    width: 100%;
+    height: 100%;
+}
+.user-msg>p{
+    line-height: 30px;
+}
+.user-msg>p>img{
+    width: 16px;
+    height: 16px;
+    margin-bottom: -3px;
+}
+.userPage .wallet{
+    height: 48px;
+    width: 100%;
+    margin:20px 0;
+    background: #fff;
+    padding: 0 13px ;
+    line-height: 48px;
+}
+.userPage .wallet img:first-child{
+    height: 20px;
+    width: 20px;
+    margin-top: 14px;
+    margin-right: 13px;
+    float: left;
+}
+.userPage .wallet span{
+    float: left;
+    line-height: 48px;
+}
+.userPage .wallet img:last-child{
+    height: 14px;
+    width: auto;
+    margin-top: 17px;
+    float: right;
+}
+.userPage .fncType li{
+    background: #fff;
+    height: 48px;
+    width: 100%;
+    padding-left:13px;
+}
+.userPage .fncType li>img{
+    height: 20px;
+    width: 20px;
+    margin-top: 14px;
+    margin-right: 13px;
+    float: left;
+}
+.userPage .fncType li>p{
+    float: left;
+    width: calc( 100% - 34px);
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #ebebeb;
+}
+.userPage .fncType a:last-child li>p{
+    border-bottom: none;
+}
+.userPage .fncType li>p>span{
+    float: left;
+    line-height: 48px;
+}
+.userPage .fncType li>p>img{
+    height: 14px;
+    width: auto;
+    margin-top: 17px;
+    margin-right: 14px;
+    float: right;
+}

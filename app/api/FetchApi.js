@@ -15,7 +15,7 @@ return arr.join('&');
 
 let baseFetch = (url, type = 'get', data) => {
     let faucetAddress = SettingsStore.getSetting("faucet_address");
-    if (window && window.location && window.location.protocol === "https:") {
+    if (window && window.location && window.location.protocol === "http:") {
         faucetAddress = faucetAddress.replace(/http:\/\//, "https://");
     }
 

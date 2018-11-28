@@ -1,6 +1,7 @@
 import WalletApi from "../api/WalletApi";
 import alt from "alt-instance";
 import WalletDb from "stores/WalletDb";
+import $ from "jquery"
 import {Apis} from "seerjs-ws";
 
 class SeerActions {
@@ -65,15 +66,19 @@ class SeerActions {
     }
 
     participate(args) {
-        let tr = WalletApi.new_transaction();
-
-        tr.add_type_operation("seer_room_participate", args);
-        return (dispatch) => {
-            return WalletDb.process_transaction(tr, null, true).then(result => {
+      let tr = WalletApi.new_transaction();
+      tr.add_type_operation("seer_room_participate", args);
+      return (dispatch) => {
+        return WalletDb.process_transaction(tr, null, true).then(result => {
                 console.log("seer_room_participate result:", result);
+                $(".loading").hide();
+                $('.pop').hide();
+                $('.success').show();
                 dispatch(true);
             }).catch(error => {
                 console.log("seer_room_participate error ----->", error);
+                $(".loading").hide();
+                alert(error);
                 dispatch(false);
             });
         };
@@ -81,7 +86,6 @@ class SeerActions {
 
     openRoom(args) {
         let tr = WalletApi.new_transaction();
-
         tr.add_type_operation("seer_room_open", args);
         return (dispatch) => {
             return WalletDb.process_transaction(tr, null, true).then(result => {
@@ -189,6 +193,7 @@ class SeerActions {
         let tr = WalletApi.new_transaction();
 
         tr.add_type_operation("seer_house_create", args);
+        console.info(tr)
         return (dispatch) => {
             return WalletDb.process_transaction(tr, null, true).then(result => {
                     console.log("presale create result:", result);

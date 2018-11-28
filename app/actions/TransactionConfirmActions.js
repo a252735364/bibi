@@ -2,11 +2,13 @@ import alt from "alt-instance";
 import {ChainConfig} from "seerjs-ws";
 import counterpart from "counterpart";
 import ZfApi from "react-foundation-apps/src/utils/foundation-api";
+import $ from "jquery";
 
 class TransactionConfirmActions {
 
     confirm(transaction, resolve, reject) {
-        return {transaction, resolve, reject};
+      return {transaction, resolve, reject};
+
     }
 
     broadcast(transaction, resolve, reject) {
@@ -26,6 +28,7 @@ class TransactionConfirmActions {
             transaction.broadcast(() => {
                 dispatch({broadcasting: false, broadcast: true});
             }).then( (res)=> {
+                console.log('yin');
                 clearTimeout(broadcast_timeout);
                 dispatch({
                     error: null,
@@ -38,7 +41,7 @@ class TransactionConfirmActions {
                 });
                 if (resolve) resolve();
             }).catch( error => {
-                console.error(error);
+                // $('.shibai').show();
                 clearTimeout(broadcast_timeout);
                 // messages of length 1 are local exceptions (use the 1st line)
                 // longer messages are remote API exceptions (use the 1st line)

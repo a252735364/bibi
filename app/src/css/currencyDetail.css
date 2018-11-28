@@ -1,0 +1,119 @@
+.currencyDetail{
+    height: 100%;
+    width: 100%;
+}
+.currencyDetail .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+.currencyDetail .header img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.currencyDetail .payment{
+    margin-top: 50px;
+}
+.currencyDetail .payment .pay{
+    height: auto;
+    width: 100%;
+    padding: 0 7% 15px;
+    background: #fff;
+}
+.currencyDetail .payment .pay>a>img{
+    height: auto;
+    width: 48%;
+    margin-left: 4%;
+}
+.currencyDetail .payment .pay>a:first-child>img{
+    margin-left: 0;
+}
+.currencyDetail .payment .title{
+    height: 53px;
+    width: 100%;
+    line-height: 53px;
+    text-align: center;
+}
+.currencyDetail .payment .title i{
+    display: block;
+    height: 14px;
+    margin-top: 20px;
+    margin-left: 13px;
+    width: 4px;
+    background: #2A7DDF;
+    border-radius: 2px;
+    float: left;
+}
+.currencyDetail .payment .title span{
+    float: left;
+    line-height: 53px;
+    margin-left: 5px;
+}
+.currencyDetail .payment .title ul{
+    height: 100%;
+    width: 100%;
+}
+.currencyDetail .payment ul li{
+    height: 90px;
+    width: 100%;
+    padding: 18px 13px;
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #ebebeb;
+}
+.currencyDetail .payment ul li>div{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.currencyDetail .payment ul li>div:first-child>p{
+    line-height: 10px;
+    width: 100%;
+    font-size: 10px;
+    height: 11px;
+    font-weight: 700;
+    /*overflow: hidden;*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.currencyDetail .payment ul li>div:first-child>p:nth-child(2){
+    line-height: 28px;
+    height: 28px;
+}
+.currencyDetail .payment ul li>div:first-child>p>span{
+    color: #999;
+    font-weight: 400;
+}
+
+.currencyDetail .payment ul li>div:last-child>p{
+    line-height: 10px;
+    width: 100%;
+    font-size: 12px;
+    height: 11px;
+    font-weight: 700;
+    /*overflow: hidden;*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    text-align: right;
+    color: #3AAF5A;
+}
+.currencyDetail .payment ul li>div:last-child>p:nth-child(2){
+    line-height: 28px;
+    height: 28px;
+    font-size: 12px;
+}
+.currencyDetail .payment ul li>div:last-child>p>span{
+    color: #999;
+    font-weight: 400;
+    font-size: 12px;
+}

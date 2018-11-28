@@ -9,6 +9,7 @@ import intlData from "./components/Utility/intlData";
 import alt from "alt-instance";
 import { connect, supplyFluxContext } from "alt-react";
 import {IntlProvider} from "react-intl";
+import {browserHistory} from "react-router";
 import SyncError from "./components/SyncError";
 import LoadingIndicator from "./components/LoadingIndicator";
 import BrowserNotifications from "./components/BrowserNotifications/BrowserNotificationsContainer";
@@ -92,16 +93,16 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this._setListeners();
-        this.syncCheckInterval = setInterval(this._syncStatus, 5000);
-        const user_agent = navigator.userAgent.toLowerCase();
-        if (!(window.electron || user_agent.indexOf("firefox") > -1 || user_agent.indexOf("chrome") > -1 || user_agent.indexOf("edge") > -1)) {
-            this.refs.browser_modal.show();
-        }
-
-        this.props.router.listen(this._rebuildTooltips);
-
-        this._rebuildTooltips();
+        // this._setListeners();
+        // this.syncCheckInterval = setInterval(this._syncStatus, 5000);
+        // const user_agent = navigator.userAgent.toLowerCase();
+        // if (!(window.electron || user_agent.indexOf("firefox") > -1 || user_agent.indexOf("chrome") > -1 || user_agent.indexOf("edge") > -1)) {
+        //     this.refs.browser_modal.show();
+        // }
+        //
+        // this.props.router.listen(this._rebuildTooltips);
+        //
+        // this._rebuildTooltips();
     }
 
     _onIgnoreIncognitoWarning(){
@@ -173,53 +174,53 @@ class App extends React.Component {
         //     );
         // } else
         if (this.state.syncFail) {
-            content = (
-                <SyncError />
-            );
+            // content = (
+            //     <SyncError />
+            // );
         } else if (this.state.loading) {
-            content = <div className="grid-frame vertical">
-                <LoadingIndicator loadingText={"Connecting to APIs and starting app"}/>
-            </div>;
+            // content = <div className="grid-frame vertical">
+            //     <LoadingIndicator loadingText={"Connecting to APIs and starting app"}/>
+            // </div>;
         } else if (this.props.location.pathname === "/init-error") {
-            content = <div className="grid-frame vertical">{this.props.children}</div>;
+            // content = <div className="grid-frame vertical">{this.props.children}</div>;
         } else if (__DEPRECATED__) {
-            content = <Deprecate {...this.props} />;
+            // content = <Deprecate {...this.props} />;
         } else {
             content = (
                 <div className="grid-frame vertical">
-                    <Header height={this.state.height}/>
-                    <div className="grid-block">
-                        <div className="grid-block vertical">
+                    {/*<Header height={this.state.height}/>*/}
+                    {/*<div className="grid-block">*/}
+                        {/*<div className="grid-block vertical">*/}
                             {this.props.children}
-                        </div>
+                        {/*</div>*/}
 
-                    </div>
-                    {showFooter ? <Footer synced={this.state.synced}/> : null}
-                    <ReactTooltip ref="tooltip" place="top" type={theme === "lightTheme" ? "dark" : "light"} effect="solid"/>
+                    {/*</div>*/}
+                    {/*{showFooter ? <Footer synced={this.state.synced}/> : null}*/}
+                    {/*<ReactTooltip ref="tooltip" place="top" type={theme === "lightTheme" ? "dark" : "light"} effect="solid"/>*/}
                 </div>
             );
         }
 
         return (
             <div style={{backgroundColor: !this.state.theme ? "#2a2a2a" : null}} className={this.state.theme}>
-                <div id="content-wrapper">
+                {/*<div id="content-wrapper">*/}
                     {content}
-                    <NotificationSystem
-                        ref="notificationSystem"
-                        allowHTML={true}
-                        style={{
-                            Containers: {
-                                DefaultStyle: {
-                                    width: "425px"
-                                }
-                            }
-                        }}
-                    />
-                    <TransactionConfirm/>
-                    <BrowserNotifications/>
-                    <WalletUnlockModal/>
-                    <BrowserSupportModal ref="browser_modal"/>
-                </div>
+                    {/*<NotificationSystem*/}
+                        {/*ref="notificationSystem"*/}
+                        {/*allowHTML={true}*/}
+                        {/*style={{*/}
+                            {/*Containers: {*/}
+                                {/*DefaultStyle: {*/}
+                                    {/*width: "425px"*/}
+                                {/*}*/}
+                            {/*}*/}
+                        {/*}}*/}
+                    {/*/>*/}
+                    {/*<TransactionConfirm/>*/}
+                    {/*<BrowserNotifications/>*/}
+                    {/*<WalletUnlockModal/>*/}
+                    {/*<BrowserSupportModal ref="browser_modal"/>*/}
+                {/*</div>*/}
             </div>
         );
 
@@ -229,6 +230,7 @@ class App extends React.Component {
 class RootIntl extends React.Component {
     componentWillMount() {
         IntlActions.switchLocale(this.props.locale);
+        browserHistory.push("/home")
     }
 
     render() {

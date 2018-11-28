@@ -1,0 +1,130 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0;box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body { background:#f4f6fd; color:#555; font-size:14px; font-family:"微软雅黑", Verdana, Arial, Helvetica, sans-serif;position: relative}
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a { color:#555; text-decoration:none; }
+a:hover { text-decoration:underline; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;}
+
+
+
+
+
+
+.walletPage .header{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    font-family: PingFangSC-Regular;
+    color: #444;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.assets{
+    height: 113px;
+    width: 100%;
+    background: #fff;
+    margin-top: 40px;
+}
+.assets>p{
+    height: 113px;
+    width: 50%;
+    float: left;
+    position: relative;
+}
+.assets>p:first-child>span:first-child{
+    display: block;
+    padding-left: 25px;
+    line-height: 14px;
+    font-size: 14px;
+    margin-top: 34px;
+}
+.assets>p:first-child>span:nth-child(2){
+    display: block;
+    padding-left: 25px;
+    margin-top: 18px;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 700;
+}
+.assets>p:nth-child(2) span{
+    height: 33px;
+    width: 67px;
+    display: block;
+    background: url("../img/walletpage/add.png") no-repeat center;
+    background-size: 67px 33px;
+    position: absolute;
+    bottom: 27px;
+    right: 20px;
+}
+.wallet-list{
+    padding:13px 3px;
+}
+.wallet-list>a>div{
+    height: 90px;
+    width: 100%;
+}
+.wallet-list>a:first-child>div{
+    background: url("../img/walletpage/seer-bg.png") no-repeat center;
+    background-size: 100% 100%;
+    margin-top: 42px;
+}
+.wallet-list>a:nth-child(2)>div{
+    background: url("../img/walletpage/bth-bg.png") no-repeat center;
+    background-size: 100% 100%;
+}
+.wallet-list>a>div>div{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.wallet-list>a>div>div:first-child>div{
+    height: 40px;
+    width: 40px;
+    border-radius: 50% ;
+    background: #fff no-repeat;
+    background-image:url("../img/logo.svg") ;
+    background-size: 100%  100%;
+    margin:25px 13px 0px 23px;
+    float: left;
+}
+.wallet-list>a>div>div:first-child>span{
+    float: left;
+    line-height: 90px;
+    font-size: 18px ;
+    color: #fff;
+}
+.wallet-list>a>div>div:last-child>span{
+    display: block;
+    color: #fff;
+    font-size: 10px;
+    text-align: right;
+    padding-right: 30px;
+    line-height: 10px;
+    height: 10px;
+}
+.wallet-list>a>div>div:last-child>span:first-child{
+    display: block;
+    margin-top: 28px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 35px;
+    height: 16px;
+}
+.logo>img{
+    height: 40px;
+    width: 40px;
+}
+

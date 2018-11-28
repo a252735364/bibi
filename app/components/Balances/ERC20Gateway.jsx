@@ -77,7 +77,7 @@ class ERC20Gateway extends React.Component {
           if(user && AccountStore.isMyAccount(user) ){
             let self = this
             let id = user.get("id")
-            console.log(this.state.ethaddr,"  ",this.state.account,"  ",id,"  ")
+            console.log(this.state.ethaddr,"  ",this.state.account,"  ",id,"  ");
             ERC20GatewayActions.getAddrByAccount({seer_account_id:user.get("id")}).then(function(res){
                 self.setState({
                     ethaddr:res,account:id
@@ -139,9 +139,8 @@ class ERC20Gateway extends React.Component {
     }
 
     seerErc20Bind(){
-
-        let account_name=this.props.currentAccount.get("name")
-        let account_id=this.props.currentAccount.get("id")
+        let account_name=this.props.currentAccount.get("name");
+        let account_id=this.props.currentAccount.get("id");
         let ethaddr;
 
         let self=this

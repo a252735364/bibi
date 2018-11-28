@@ -1,0 +1,244 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0;box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body { background:#f4f6fd; color:#555; font-size:14px; font-family:"微软雅黑", Verdana, Arial, Helvetica, sans-serif;position: relative}
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a { color:#555; text-decoration:none; }
+a:hover { text-decoration:underline; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;}
+
+
+
+
+
+
+
+
+.swiper,
+.swiper .swiper-container,
+.swiper .swiper-wrapper,
+.swiper .swiper-slide{
+    height: 177px;
+    width: 100%;
+}
+.swiper .swiper-container{
+    position: relative;
+}
+#swiper-pagination{
+    position: absolute;
+    bottom: 10px;
+    left: 100%;
+    width: 100px;
+    margin-left: -100px;
+    height: auto;
+}
+.swiper .swiper-slide p{
+    width: 70%;
+    font-size: 12px;
+    margin-top: 50px;
+    margin-left: 23px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.swiper .swiper-slide span{
+    font-size: 12px;
+    display: block;
+    margin-right: 23px;
+    color: #fff;
+    text-align: right;
+}
+.swiper .swiper-slide:first-child{
+    background: url("../img/banner1.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.swiper .swiper-slide:nth-child(2){
+    background: url("../img/banner2.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.swiper .swiper-slide:nth-child(3){
+    background: url("../img/banner3.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.play-select{
+    height: 83px;
+    width: 100%;
+    background: #fff;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.play-select div{
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+.play-select div img{
+    display: block;
+    height: 40px;
+    margin: 10px auto;
+}
+.play-select div p{
+    text-align: center;
+    font-size: 12px;
+}
+.guess-list{
+    padding: 20px 13px 50px;
+}
+.guess-list .title{
+    font-size: 14px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.guess-list .title i{
+    display: block;
+    height: 14px;
+    width: 4px;
+    background: #2A7DDF;
+    border-radius: 2px;
+    float: left;
+}
+.guess-list .title span{
+    float: left;
+    line-height: 14px;
+    margin-left: 5px;
+}
+.guess-list .guess-content{
+    height: auto;
+    width: 100%;
+    background: #fff;
+    border-radius: 7px;
+    margin-bottom: 20px;
+}
+.guess-list .guess-content>div:first-child{
+    height: 34px;
+    line-height: 34px;
+    color: #2A7DDF;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+    padding-left: 13px;
+    padding-right: 13px;
+    font-size: 12px;
+}
+.guess-list .guess-content>div:first-child>p{
+    width: calc(100% - 17px);
+    float: left;
+    height: 35px;
+}
+.guess-list .guess-content>div:first-child>p:nth-child(2){
+    width: 17px;
+}
+.guess-list .guess-content>div:first-child>p>img{
+    height: 17px;
+    width: 17px;
+    float: right;
+    margin-top: 8px;
+}
+.guess-list .guess-content>div:nth-child(2){
+    height: auto;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+    font-size: 12px;
+    padding: 12px 17px;
+}
+.guess-list .guess-content>div:nth-child(2) p{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.guess-list .guess-content>div:nth-child(2)>div{
+    width: 100%;
+    height: 33px;
+    margin-top: 16px;
+    overflow: hidden;
+}
+.guess-list .guess-content>div:nth-child(2)>div>div{
+    width: 31.5%;
+    height: 33px;
+    margin-left: 2.75%;
+    background: linear-gradient(to right, #2A7DDF , #38AFF4);
+    float: left;
+    border-radius: 16px;
+    color: #fff;
+    line-height: 33px;
+    text-align: center;
+    padding: 0 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.guess-list .guess-content>div:nth-child(2)>div>div:first-child{
+    margin-left: 0;
+}
+.guess-list .guess-content>div:nth-child(3){
+    padding: 0 15px;
+    height: 42px;
+    width: 100%;
+}
+.guess-list .guess-content>div:nth-child(3)>div{
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    width: 28%;
+}
+.guess-list .guess-content>div:nth-child(3)>div:first-child{
+    width: 46%;
+}
+.guess-list .guess-content>div:nth-child(3)>div:last-child{
+    width: 65px;
+    float: right;
+}
+
+.guess-list .guess-content>div:nth-child(3)>div>img{
+    height: 20px;
+    width: 20px;
+    margin-top: 10px;
+    margin-right: 3px;
+    float: left;
+    font-size: #444444;
+}
+.guess-list .guess-content>div:nth-child(3)>div>span{
+    float: left;
+    line-height: 42px;
+    font-size: 12px;
+}
+.give-seer{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background: rgba(0,0,0,0.2);
+    top: 0;
+    z-index: 9999;
+}
+.give-seer>div:first-child{
+    width: 309px;
+    height: 386px;
+    margin: 100px auto 0;
+    background: url("../img/homepage/seer.png") no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+.give-seer>div:first-child>img{
+    position: absolute;
+    right: 9px;
+    top: 30px  ;
+    height: 24px;
+    width: 24px;
+}
+.give-seer>div:last-child{
+    width: 200px;
+    height: 44px;
+    background: linear-gradient(to right,#2A7DDF,#38AFF4);
+    border-radius: 22px;
+    position: absolute;
+    top: 425px;
+    left: calc(50% - 96px);
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}

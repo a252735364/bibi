@@ -38,6 +38,7 @@ class WalletManagerStore extends BaseStore {
 
     /** This will change the current wallet the newly restored wallet. */
     onRestore({wallet_name, wallet_object}) {
+        console.info("in onRestore")
         iDB.restore(wallet_name, wallet_object).then( () => {
             AccountStore.setWallet(wallet_name);
             return this.onSetWallet({wallet_name})
@@ -51,6 +52,7 @@ class WalletManagerStore extends BaseStore {
         should a <b>create_wallet_password</b> be provided.
     */
     onSetWallet({wallet_name = "default", create_wallet_password, brnkey, resolve}) {
+        console.info("in onSetWallet")
         var p = new Promise( res => {
             if( /[^a-z0-9_-]/.test(wallet_name) || wallet_name === "" )
                 throw new Error("Invalid wallet name")
@@ -113,6 +115,7 @@ class WalletManagerStore extends BaseStore {
     }
 
     init() {
+        console.info("init walletmanager ");
         return iDB.root.getProperty("current_wallet").then(
             current_wallet => {
                 return iDB.root.getProperty("wallet_names", []).then( wallet_names => {

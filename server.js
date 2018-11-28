@@ -25,7 +25,7 @@ app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "app/assets/index-dev.html"));
 });
 
-var port=9080
+var port=3000
 app.listen(port, function (err) {
     if (err) {
         return console.error(err);

@@ -4,28 +4,116 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width"/>
     <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' *; font-src 'self' data:; img-src 'self' data: https://www.transwiser.com;">-->
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>-->
-    <title>Seer</title>
+    <title>bibi</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
-        body {
-            background-color: #2a2a2a
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0;box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
+        body { background:#f4f6fd; color:#555; font-size:14px; font-family:"微软雅黑", Verdana, Arial, Helvetica, sans-serif;position: relative}
+        td,th,caption { font-size:14px; }
+        h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+        address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+        a { color:#555; text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        img { border:none; }
+        ol,ul,li { list-style:none; }
+        input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+        table { border-collapse:collapse; }
+        html {overflow-y: scroll;}
+
+        .clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+        .clearfix { *zoom:1; }
+
+
+
+        .main{
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .content{
+            height: 100%;
+            width: 100%;
+        }
+        .hidden{
+            display: none;
+        }
+        .footer{
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+            box-sizing: border-box;
+        }
+        .footer ul{
+            width: 100%;
+            height: auto;
+        }
+        .footer ul li{
+            float: left;
+            width: 25%;
+            height: 55px;
+            text-align: center;
+            font-size: 10px;
+            padding-top: 2px;
+        }
+        .footer ul li img{
+            height: 28px;
+            width: 28px;
+            display: block;
+            margin: 0 auto ;
+        }
+        .footer ul li p{
+            text-align: center;
+        }
+        .footer ul li a{
+            text-decoration: none;
+        }
+
         .centerDiv {
-            width:140px; border-radius: 5px; color:lightgrey;
-            padding:10px; height:50px; position:absolute;
-            margin-top:-25px; margin-left:-70px; top:50%; left:50%;
-            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-            font-weight: 100;
-            font-size: 44px;
+            display: block;
+            height: 100%;
+            width: 100%;
+            color: #555;
+            text-align: center;
+            line-height: 350px;
+            background: url("qr.png");
         }
     </style>
 </head>
 <body>
     <main id="content">
-        <h1 class="centerDiv" style="">Loading...</h1>
+        <h1 class="centerDiv" style="">loading...</h1>
     </main>
+    <script>
+      delCookie('code');
+      function getCookie(cookieName) {
+        let strCookie = document.cookie;
+        let arrCookie = strCookie.split("; ");
+        for(let i = 0; i < arrCookie.length; i++){
+          let arr = arrCookie[i].split("=");
+          if(cookieName == arr[0]){
+            return arr[1];
+          }
+        }
+        return "";
+      }
+      function delCookie(key) {
+        var date = new Date();
+        date.setTime(date.getTime() - 1);
+        var delValue = getCookie(key);
+        if (!!delValue) {
+          document.cookie = key+'='+delValue+';expires='+date.toGMTString();
+        }
+      }
+    </script>
 <script src="/app.js" charset="utf-8"></script>
 </body>
 </html>

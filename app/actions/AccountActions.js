@@ -6,6 +6,7 @@ import WalletApi from "api/WalletApi";
 import ApplicationApi from "api/ApplicationApi";
 import WalletDb from "stores/WalletDb";
 import WalletActions from "actions/WalletActions";
+import $ from "jquery"
 
 let accountSearch = {};
 
@@ -28,6 +29,21 @@ class AccountActions {
                 accountSearch[uid] = true;
                 return AccountApi.lookupAccounts(start_symbol, limit)
                 .then(result => {
+                    result.map(function(v,i) {
+                      // console.log(i);
+                      // console.log(v);
+                      // console.log(result[0][0]);
+                      // console.log(start_symbol);
+                      if(result[0][0]==start_symbol){
+                       $(".prompt").text("用户名已存在");
+                        $('.submit').hide();
+                        $('.submit2').show();
+                      }else{
+                        $(".prompt").text("");
+                        $('.submit').hide();
+                        $('.submit1').show();
+                      }
+                    });
                     accountSearch[uid] = false;
                     dispatch({accounts: result, searchTerm: start_symbol});
                 });
@@ -60,17 +76,20 @@ class AccountActions {
     transfer(from_account, to_account, amount, asset, memo, propose_account = null, fee_asset_id = "1.3.0") {
 
         // Set the fee asset to use
-        fee_asset_id = accountUtils.getFinalFeeAsset(propose_account || from_account, "transfer", fee_asset_id);
+      fee_asset_id = accountUtils.getFinalFeeAsset(propose_account || from_account, "transfer", fee_asset_id);
+      console.log(fee_asset_id);
 
-        try {
+      try {
             return (dispatch) => {
-                return ApplicationApi.transfer({
+              console.log(amount);
+              return ApplicationApi.transfer({
                     from_account, to_account, amount, asset, memo, propose_account, fee_asset_id
                 }).then(result => {
                     // console.log( "transfer result: ", result )
+                console.log(result);
 
-                    dispatch(result);
-                });
+                dispatch(result);
+                })
             };
         } catch (error) {
             console.log("[AccountActions.js:90] ----- transfer error ----->", error);

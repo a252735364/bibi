@@ -1,0 +1,701 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0;box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body { background:#f4f6fd; color:#555; font-size:14px; font-family:"微软雅黑", Verdana, Arial, Helvetica, sans-serif;position: relative}
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a { color:#555; text-decoration:none; }
+a:hover { text-decoration:underline; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;}
+
+
+
+
+.hidden{
+    display: none;
+}
+.guess-detail .header{
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    color: #444;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+}
+.guess-detail .header>img{
+    height: 15px;
+    width: 8px;
+    position: absolute;
+    left: 14px;
+    top: 14px;
+}
+.guess-detail .guess-content .info{
+    height: auto;
+    width: 100%;
+    background: #fff;
+    margin-top: 40px;
+}
+.guess-detail .guess-content .info .date{
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+}
+.guess-detail .guess-content .info .date p:first-child{
+    line-height: 50px;
+    padding-left: 23px;
+    font-size: 12px;
+    color: #2A7DDF;
+    float: left;
+}
+.guess-detail .guess-content .info .date p:last-child{
+     height: 33px;
+     width: 93px;
+     background: url("../img/homepage/guess-bg.png") no-repeat;
+     background-size: 100% 100%;
+     float: right;
+     margin-top: 8.5px;
+    margin-right: 23px;
+     line-height: 33px;
+    text-align: center;
+     color: #2A7DDF;
+    font-weight: 700;
+}
+.guess-detail .guess-content .statistics{
+    height: auto;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+}
+.guess-detail .guess-content .statistics>p{
+    height: auto;
+    width: 100%;
+    padding: 15px 25px 0;
+    font-size: 12px;
+    overflow: hidden;
+}
+.guess-detail .guess-content .statistics>div{
+    height: auto;
+    width: 100%;
+    padding: 10px 25px 10px 25px;
+}
+.guess-detail .guess-content .statistics>div>p{
+    height: 30px;
+    width: 100%;
+    line-height: 30px;
+    font-size: 12px;
+    position: relative;
+}
+.guess-detail .guess-content .statistics>div>p>span:first-child{
+    float: left;
+    width: calc(100% - 170px)
+}
+.guess-detail .guess-content .statistics>div>p>span:first-child>span:first-child{
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.guess-detail .guess-content .statistics>div>p>span:first-child>span:last-child{
+    float: left;
+}
+.guess-detail .guess-content .statistics>div>p>span:last-child{
+    position: absolute;
+    right: 0px;
+    top: 8px;
+    width: 160px;
+    height: 14px;
+    border: 1px solid #2A7DDF;
+    border-radius: 8px;
+    background: #eaf1f9;
+    overflow: hidden;
+}
+.guess-detail .guess-content .statistics>div>p>span:last-child>span{
+    position: absolute;
+    height: 14px;
+    line-height: 14px;
+    font-size: 10px;
+    color: #333;
+    margin-left: 10px;
+}
+.guess-detail .guess-content .statistics>div>p>span>i{
+    width: 0;
+    display: block;
+    height: 14px;
+    border-radius:0 7px 7px 0;
+    background: linear-gradient(to right, #2A7DDF , #38AFF4);
+}
+.guess-detail .guess-content .statistics-bottom{
+    height: 46px;
+    width: 100%;
+    padding: 0 26px;
+    overflow: hidden;
+}
+.guess-detail .guess-content .statistics-bottom>div{
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    width: 28%;
+}
+.guess-detail .guess-content .statistics-bottom>div:first-child{
+    width: 46%;
+}
+.guess-detail .guess-content .statistics-bottom>div:last-child{
+    width: 65px;
+    float: right;
+}
+.guess-detail .guess-content .statistics-bottom>div>img{
+    height: 20px;
+    width: 20px;
+    margin-top: 10px;
+    margin-right: 3px;
+    float: left;
+}
+.guess-detail .guess-content .statistics-bottom>div>span{
+    float: left;
+    line-height: 42px;
+    font-size: 12px;
+
+}
+.guess-detail .guess-content .select>.title{
+    height: 48px;
+    width: 100%;
+    line-height: 48;
+    padding-left: 13px;
+}
+.guess-detail .guess-content .select>.title>i{
+    display: block;
+    height: 13px;
+    width: 3px;
+    border-radius: 1.5px;
+    background: #2A7DDF;
+    float: left;
+    margin-top: 18px;
+}
+.guess-detail .guess-content .select>.title>span{
+    font-size: 13px;
+    line-height: 48px;
+    font-weight: 700;
+    float: left;
+    margin-left: 5px;
+}
+.guess-detail .guess-content .select ul li{
+    height: 72px;
+    width: 100%;
+    background: #fff;
+    padding: 0 10px;
+    border-bottom: 1px solid #ebebeb;
+    position: relative;
+}
+.guess-detail .guess-content .select ul li span{
+    line-height: 72px;
+    font-size: 10px;
+    float: left;
+    margin-right: 5px;
+}
+.guess-detail .guess-content .select ul li>span:first-child{
+    font-size: 12px;
+    max-width: 115px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.guess-detail .guess-content .select ul li>span:nth-child(2){
+    max-width: 72px;
+}
+.guess-detail .guess-content .select ul li>span:nth-child(3){
+    height: 15px;
+    width: 15px;
+    float: left;
+    margin-top: 27.5px;
+    background: url("../img/homepage/info.png") no-repeat;
+    background-size: 15px 15px;
+    position: relative;
+}
+.guess-detail .guess-content .select ul li>span:nth-child(3)>span{
+    position: absolute;
+    width: 100px;
+    height: auto;
+    background: #fff;
+    left: 27px;
+    top: -16px;
+    font-size: 10px;
+    line-height: 12px;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid #2A7DDF;
+    z-index: 9999;
+}
+.guess-detail .guess-content .select ul li>span:nth-child(3)>span>span{
+    background: #fff url("../img/homepage/jiao.png") no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    left: -10px;
+    height: 10px;
+    width: 10px;
+    top: 17px;
+}
+.guess-detail .guess-content .select ul li>span:nth-child(4){
+    width: 85px;
+    height: 33px;
+    background: url("../img/homepage/button-bg.png");
+    background-size: 100% 100%;
+    float: right;
+    margin-top: 20px;
+    color: #2A7DDF;
+    font-size: 14px;
+    line-height: 33px;
+    text-align: center;
+}
+.guess-detail .guess-content .select ul li>span.result{
+    height: 35px;
+    line-height: 35px;
+    width: 20%;
+    border: 1px solid #F13535;
+    background: none;
+    transform:rotate(-10deg);
+    margin-top: 16px;
+    text-align: center;
+    color: #F13535;
+    float: right;
+    font-size: 16px;
+}
+.pop2,
+.pop{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,0.2);
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+.pop .pop-box{
+    height: auto;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+}
+.pop .pop-box>div:first-child>div:first-child{
+    line-height: 20px;
+    height: 20px;
+    font-size: 10px;
+    margin-top: 15px;
+    font-weight: 700;
+    padding: 0 15px;
+}
+.pop .pop-box div:first-child>div:first-child>span{
+    font-weight: 400;
+    color: #2A7DDF;
+}
+.pop .pop-box div:first-child>div:first-child>img{
+    height: 20px;
+    width: 20px;
+    float: right;
+}
+.pop .pop-box div:first-child>div:nth-child(2){
+    font-size: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    height: 10px;
+    line-height: 10px;
+    padding: 0 15px;
+}
+.pop .pop-box div:first-child>div:nth-child(2)>a{
+    float: right;
+    text-decoration: underline;
+    color: #2A7DDF;
+    font-size: 10px;
+}
+.pop .pop-box div:first-child>div.input{
+    height: 44px;
+    width: 100%;
+    padding: 0 15px;
+}
+.pop .pop-box div:first-child>div.input>input{
+    height: 40px;
+    width: 100%;
+    border: 1px solid #999;
+    padding-left: 10px;
+    color: #999;
+    outline: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.pop .pop-box div:first-child>div:nth-child(4){
+    height: 30px;
+    line-height: 30px;
+    font-size: 10px;
+    overflow: hidden;
+    padding: 0 15px;
+}
+.pop .pop-box div:first-child>div:nth-child(4)>p{
+    float: left;
+    width: 50%;
+    height: 30px;
+}
+.pop .pop-box div:first-child>div:nth-child(4)>p:last-child{
+    text-align: right;
+}
+.pop .pop-box div:first-child>div:nth-child(4)>p:first-child>span:last-child{
+    color: #f16163;
+}
+.pop .pop-box div:first-child>div:nth-child(4)>p:last-child>span:last-child{
+    color: #2A7DDF;
+}
+.pop .pop-box div:first-child>div:nth-child(5){
+    overflow: hidden;
+    height: 0px;
+    width: 100%;
+    background: #D6D7DC;
+    transition:height 0.5s;
+}
+.pop .pop-box div:first-child>div:nth-child(5)>p{
+    height: 33px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+.pop .pop-box div:first-child>div:nth-child(5)>p:first-child{
+    margin-top: 15px;
+}
+.pop .pop-box div:first-child>div:nth-child(5)>p:last-child{
+    margin-bottom: 25px;
+}
+.pop .pop-box div:first-child>div:nth-child(5)>p>span{
+    width: 31.25%;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    float: left;
+    margin-left: 3.1%;
+    font-weight: 700;
+    background: #fff;
+    border-radius: 16px;
+}
+.pop .pop-box div:first-child>div:nth-child(5)>p>span:first-child{
+    margin-left: 0;
+}
+.pop .pop-box div:first-child>div:nth-child(6){
+    height: 90px;
+    width: 100%;
+    padding: 0px 15px 0;
+}
+.pop .pop-box div:first-child>div:nth-child(6)>.error-text{
+    height: 30px;
+    width: 100%;
+    line-height: 20px;
+    color: #f16163;
+    font-size: 12px;
+}
+.pop .pop-box div:first-child>div:nth-child(6)>.button{
+    height: 50px;
+    width: 100%;
+    background: linear-gradient(to right, #2A7DDF , #38AFF4);
+    border-radius: 25px;
+    border: 0;
+    outline: none;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+}
+.pop .pop-box div:last-child>div:first-child{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    font-weight: 700;
+}
+.pop .pop-box div:last-child>div:first-child>img{
+    width: 8px;
+    height: 15px;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+}
+.pop .pop-box div:last-child>div:first-child>button{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 14px;
+    top: 0;
+    color: #2A7DDF;
+    border: none;
+    background: none;
+    outline: none;
+}
+.pop .pop-box div:last-child>div:last-child{
+    height: 73px;
+    width: 100%;
+    padding: 4px 27px;
+    overflow: hidden;
+}
+.pop .pop-box div:last-child>div:last-child>input{
+    height: 33px;
+    width: 100%;
+    padding-left: 10px;
+    color: #999;
+    outline: none;
+    margin-top: 5px;
+}
+.pop .pop-box div:last-child>div:last-child>p{
+    font-size: 12px;
+    color: #E62E2E;
+    line-height: 30px;
+}
+
+
+
+.guess-detail .guess-content .record>.title{
+    height: 48px;
+    width: 100%;
+    line-height: 48;
+    padding-left: 13px;
+}
+.guess-detail .guess-content .record>.title>i{
+    display: block;
+    height: 13px;
+    width: 3px;
+    border-radius: 1.5px;
+    background: #2A7DDF;
+    float: left;
+    margin-top: 18px;
+}
+.guess-detail .guess-content .record>.title>span{
+    font-size: 13px;
+    line-height: 48px;
+    font-weight: 700;
+    float: left;
+    margin-left: 5px;
+}
+.guess-detail .guess-content .record>.title>span:last-child{
+    float: right;
+    padding-right: 15px;
+    font-weight: 400;
+}
+.guess-detail .guess-content .record>.t-h{
+    height: 45px;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+}
+.guess-detail .guess-content .record>.t-h>span{
+    float: left;
+    width: 25%;
+    font-size: 14px;
+    color: #444;
+    font-weight: 700;
+    text-align: center;
+    line-height: 45px;
+    background: #fff;
+}
+.guess-detail .guess-content .record>ul>li{
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+    background: #fff;
+}
+.guess-detail .guess-content .record>ul>li>span{
+    float: left;
+    width: 25%;
+    line-height: 40px;
+    font-size: 10px;
+    color: #444;
+    text-align: center;
+}
+.shibai,
+.success{
+    height: calc(100% + 40px);
+    width: 100%;
+    position: fixed;
+    top: -40px;
+    left: 0;
+    background: #f4f6fd;
+    z-index: 99999;
+    padding: 0 27px;
+}
+.shibai div:first-child{
+    width: 100%;
+    height: 122px;
+    background: url("../../src/img/homepage/error.png") no-repeat center;
+    background-size: 100% 100%;
+    margin: 164px auto 35px;
+}
+.success div:first-child{
+    width: 100%;
+    height: auto;
+    margin: 164px auto 35px;
+    background: #fff;
+    border-radius: 5px;
+}
+.shibai div:first-child>p:first-child,
+.success div:first-child>p:first-child{
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+.success div:first-child>p:first-child{
+    background: linear-gradient(to right, #2A7DDF , #38AFF4);
+    border-radius: 5px 5px 0 0 ;
+}
+.shibai div:first-child>p:nth-child(2){
+    line-height: 80px;
+    text-align: center;
+    font-size: 12px;
+}
+.shibai div:last-child{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    background: linear-gradient(to right, #2A7DDF , #38AFF4);
+    color: #fff;
+}
+.success div:first-child>p:nth-child(2){
+    height: auto;
+    padding: 20px 13px 10px;
+    font-size: 12px;
+    overflow: hidden;
+    line-height: 18px;
+}
+.success div:first-child>p:nth-child(3){
+    height: 12px;
+    font-size: 12px;
+    padding: 0 13px;
+    color: #2E8BE5;
+    margin-top: 10px;
+}
+.success div:first-child>p:nth-child(3) span:first-child{
+    float: left;
+    width: 50%;
+    overflow: hidden;
+}
+.success div:first-child>p:nth-child(3) span:last-child{
+    float: right;
+    width: 50%;
+    overflow: hidden;
+    text-align: right;
+}
+.success div:first-child>p:nth-child(4){
+    padding: 0 13px 10px;
+    color: #2E8BE5;
+    font-size: 12px;
+    margin-top: 20px;
+}
+.success div:last-child{
+    margin-top: 28px;
+}
+.success div:last-child span{
+    height: 40px;
+    width: 42%;
+    display: block;
+    line-height: 40px;
+    text-align: center;
+}
+.success div:last-child span:first-child{
+    border-radius: 38px;
+    border:1px solid #2E8BE5;
+    float: left;
+    color: #2E8BE5;
+}
+.success div:last-child span:last-child{
+    background: linear-gradient(to right, #2A7DDF , #38AFF4);
+    border-radius: 20px;
+    float: right;
+    color: #fff;
+}
+.loading{
+    height: calc(100% + 40px);
+    width: 100%;
+    position: fixed;
+    background: rgba(0,0,0,0.2);
+    z-index: 99999;
+    top: -40px;
+}
+.loading>div{
+    height: 140px;
+    width: 140px;
+    background: #fff;
+    margin: 260px auto 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.loading>div>img{
+    height: 40px;
+    width: 40px;
+    display: block;
+    margin: 33px auto 24px;
+}
+.loading>div>p{
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #333;
+}
+.password{
+    height: 123px;
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.password .head{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.password .head>img{
+    height: 15px;
+    width: 7px;
+    position: absolute;
+    left: 10px;
+    top: 17.5px;
+}
+.password .head>div{
+    position: absolute;
+    right: 10px;
+    top: 0;
+    color: #2E8BE5;
+}
+.password>.wallet-password{
+    padding: 0 13px;
+    height: 73px;
+    box-sizing: border-box;
+}
+.password>.wallet-password input{
+    height: 36px;
+    line-height: 36px;
+    width: 100%;
+    outline:none;
+    border: 1px solid #999;
+    padding-left: 13px;
+    font-size: 12px;
+    color: #999;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.password>.wallet-password .error{
+    margin-top: 10px;
+    height: 14px;
+    line-height: 14px;
+    padding-left: 13px;
+    font-size: 12px;
+}
+
