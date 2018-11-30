@@ -1,13 +1,11 @@
-Bibi
+币比
 
+币比是基于seer开源项目开发 ，开发者是通过seer项目基础上增加币比的页面和路由。
 
-Bibi is based on SEER open source project development, developers add Bibi pages and routing based on SEER project.
+首先整个项目是在node环境下的react项目 ，所以先搭建“NODE”环境 ，请自行百度“NODE”搭建
 
+通过git 把代码克隆到本地  “https://github.com/a252735364/ytf.git”
 
-First of all, the whole project is a react project in the node environment, so first build the "NODE" environment, please build Baidu "NODE" by yourself.
+通过npm 跑整个项目 ，用webStorm ，或者 cmd 等等都可以 。
 
-
-Clone the code to the local "https://github.com/a252735364/ytf.git" through Git
-
-
-Running the whole project through npm, using webStorm, cmd, etc.
+币比页面资源在 app/src 目录下
